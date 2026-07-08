@@ -6,9 +6,11 @@ import { DashboardHero } from "../mocks/DashboardHero";
 import { hero } from "../../data/content";
 import { EASE_OUT, fadeUp, stagger } from "../../lib/motion";
 
+const FADE = "linear-gradient(to bottom, black 0%, black 84%, transparent 100%)";
+
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden bg-hero-wash pt-32 pb-16 md:pt-40 md:pb-24">
+    <section id="top" className="relative overflow-hidden bg-hero-wash pt-32 pb-8 md:pt-40 md:pb-10">
       <div className="mx-auto w-full max-w-[1200px] px-6 md:px-10">
         <motion.div variants={stagger(0.09)} initial="hidden" animate="show" className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <motion.span variants={fadeUp} className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3.5 py-1.5 text-xs font-medium text-accent shadow-soft">
@@ -26,17 +28,19 @@ export function Hero() {
           </motion.div>
           <motion.p variants={fadeUp} className="mt-4 text-sm text-muted">No credit card required</motion.p>
         </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 48 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.9, ease: EASE_OUT }}
-          className="relative mx-auto mt-16 max-w-6xl"
-        >
-          <GlowBackground className="inset-x-0 -top-10 bottom-16 opacity-90" />
-          <DashboardHero />
-        </motion.div>
       </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 48 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.9, ease: EASE_OUT }}
+        className="relative mx-auto mt-16 w-full max-w-6xl px-6"
+      >
+        <GlowBackground className="inset-x-0 -top-10 bottom-24 opacity-90" intensity="lg" />
+        <div style={{ WebkitMaskImage: FADE, maskImage: FADE }}>
+          <DashboardHero />
+        </div>
+      </motion.div>
     </section>
   );
 }

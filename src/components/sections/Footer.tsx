@@ -8,12 +8,10 @@ const SOCIAL = { YouTube: Youtube, Facebook: Facebook } as const;
 function Column({ title, items }: { title: string; items: string[] }) {
   return (
     <div>
-      <p className="text-sm font-semibold text-fg">{title}</p>
+      <p className="text-sm font-semibold text-ink">{title}</p>
       <ul className="mt-4 space-y-3">
         {items.map((it) => (
-          <li key={it}>
-            <a href="#" className="text-sm text-muted transition-colors hover:text-fg">{it}</a>
-          </li>
+          <li key={it}><a href="#" className="text-sm text-ink-2 transition-colors hover:text-accent">{it}</a></li>
         ))}
       </ul>
     </div>
@@ -22,19 +20,17 @@ function Column({ title, items }: { title: string; items: string[] }) {
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-canvas">
+    <footer className="border-t border-border bg-surface-soft">
       <Container className="py-16">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <Logo />
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
-              AI-powered audio and video transcription in 117 languages, with 99% accuracy.
-            </p>
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink-2">AI-powered audio and video transcription in 117 languages, with 99% accuracy.</p>
             <div className="mt-5 flex gap-3">
               {footer.social.map((s) => {
                 const Icon = SOCIAL[s as keyof typeof SOCIAL];
                 return (
-                  <a key={s} href="#" aria-label={s} className="grid h-9 w-9 place-items-center rounded-full border border-border text-muted transition-colors hover:text-fg">
+                  <a key={s} href="#" aria-label={s} className="grid h-9 w-9 place-items-center rounded-full border border-border bg-white text-ink-2 shadow-soft transition-colors hover:text-accent">
                     <Icon size={16} />
                   </a>
                 );

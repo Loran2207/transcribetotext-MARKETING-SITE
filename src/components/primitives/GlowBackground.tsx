@@ -1,18 +1,18 @@
 export function GlowBackground({
   className = "",
-  variant = "spectrum",
+  variant = "blue",
 }: {
   className?: string;
-  variant?: "spectrum" | "beacon";
+  variant?: "blue" | "teal";
 }) {
   const bg =
-    variant === "beacon"
-      ? "radial-gradient(closest-side, rgba(120,90,255,0.45), rgba(46,123,255,0.22), transparent)"
-      : "radial-gradient(closest-side, rgba(77,212,255,0.40), rgba(46,123,255,0.22), transparent)";
+    variant === "teal"
+      ? "radial-gradient(closest-side, rgba(42,175,167,0.22), rgba(42,175,167,0.06), transparent)"
+      : "radial-gradient(closest-side, rgba(0,136,235,0.20), rgba(0,136,235,0.05), transparent)";
   return (
     <div
       aria-hidden="true"
-      className={`pointer-events-none absolute -z-10 blur-[64px] ${className}`}
+      className={`pointer-events-none absolute -z-10 blur-[70px] ${className}`}
       style={{ background: bg }}
     />
   );

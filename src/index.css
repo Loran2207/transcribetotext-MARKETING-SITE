@@ -1,67 +1,65 @@
 @import "tailwindcss";
 
 @theme {
-  --color-canvas: #060814;
-  --color-surface-1: #0C0F1C;
-  --color-surface-2: #0A1628;
-  --color-fg: #FFFFFF;
-  --color-fg-2: #C7CBD6;
-  --color-muted: #7A828F;
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-strong: rgba(255, 255, 255, 0.14);
-  --color-accent: #2E7BFF;
-  --color-accent-hi: #4DD4FF;
-  --color-success: #16C253;
-  --color-paper: #FBFBF9;
-  --color-paper-card: #FFFFFF;
-  --color-paper-border: #E6E4E0;
-  --color-ink: #0B0B0F;
-  --color-ink-2: #6E6A63;
+  --color-canvas: #FFFFFF;
+  --color-tint-sky: #F3F6FC;
+  --color-tint-mint: #E8FBFA;
+  --color-surface: #FFFFFF;
+  --color-surface-soft: #FAFBFD;
+  --color-ink: #1E1B39;
+  --color-ink-2: #5A6072;
+  --color-muted: #8A90A0;
+  --color-border: #E7EAF0;
+  --color-border-soft: #EEF1F6;
+  --color-accent: #0088EB;
+  --color-accent-dark: #0A6FCC;
+  --color-accent-soft: #E6F3FE;
+  --color-teal: #2AAFA7;
+  --color-teal-soft: #E8FBFA;
+  --color-gold: #FBBC05;
+  --color-coral: #FF6A16;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Instrument Serif", ui-serif, Georgia, serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
-  --radius-card: 20px;
-  --radius-tile: 24px;
-  --radius-media: 16px;
-  --radius-input: 12px;
+  --font-display: "Inter Tight", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --radius-card: 24px;
+  --radius-tile: 28px;
+  --radius-media: 20px;
+  --radius-input: 14px;
 }
 
 :root {
-  --beacon: linear-gradient(96deg, #2E6BFF 0%, #C46BFF 100%);
-  --spectrum: linear-gradient(90deg, #4DD4FF 0%, #2E7BFF 100%);
-  --atmosphere: radial-gradient(120% 90% at 50% -10%, #16225A 0%, #0A0F2A 42%, #060814 76%);
+  --shadow-soft: 0 2px 6px rgba(16,24,40,.04), 0 8px 24px rgba(16,24,40,.06);
+  --shadow-card: 0 2px 6px rgba(16,24,40,.05), 0 12px 32px rgba(16,24,40,.08);
+  --shadow-lift: 0 4px 10px rgba(16,24,40,.06), 0 30px 70px rgba(16,24,40,.14);
+  --shadow-blue: 0 10px 30px rgba(0,136,235,.32);
+  --hero-wash: radial-gradient(60% 60% at 50% 0%, #E6F3FE 0%, rgba(230,243,254,0) 70%);
 }
 
 @layer base {
   html { scroll-behavior: smooth; }
   body {
     background-color: var(--color-canvas);
-    color: var(--color-fg-2);
+    color: var(--color-ink-2);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
-  ::selection { background: rgba(46, 123, 255, 0.32); color: #fff; }
+  ::selection { background: rgba(0,136,235,.18); color: #0A2540; }
 }
 
 @layer components {
-  .bg-atmosphere { background: var(--atmosphere); }
-  .bg-beacon { background: var(--beacon); }
-  .bg-spectrum { background: var(--spectrum); }
+  .bg-hero-wash { background: var(--hero-wash); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-card { box-shadow: var(--shadow-card); }
+  .shadow-lift { box-shadow: var(--shadow-lift); }
+  .shadow-blue { box-shadow: var(--shadow-blue); }
   .text-balance { text-wrap: balance; }
   .text-pretty { text-wrap: pretty; }
 }
 
-@keyframes eq {
-  0%, 100% { transform: scaleY(0.3); }
-  50% { transform: scaleY(1); }
-}
+@keyframes eq { 0%,100% { transform: scaleY(0.35); } 50% { transform: scaleY(1); } }
+@keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-  }
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
 }

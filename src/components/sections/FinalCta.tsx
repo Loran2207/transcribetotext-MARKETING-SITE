@@ -1,48 +1,40 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
 import { Container } from "../primitives/Container";
-import { Button } from "../primitives/Button";
 import { Waveform } from "../primitives/Waveform";
-import { GlowBackground } from "../primitives/GlowBackground";
 import { finalCta } from "../../data/content";
-import { fadeUp, stagger, viewportOnce } from "../../lib/motion";
+import { brand } from "../../data/assets";
+import { fadeUp, stagger, viewportOnce, SPRING } from "../../lib/motion";
 
 export function FinalCta() {
   return (
-    <section className="relative overflow-hidden bg-atmosphere py-24 md:py-32">
-      <GlowBackground variant="beacon" className="left-1/2 top-1/2 h-[400px] w-[700px] -translate-x-1/2 -translate-y-1/2 opacity-60" />
-      <Container>
+    <section className="relative overflow-hidden bg-accent py-24 md:py-28">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-50" style={{ background: "radial-gradient(60% 80% at 50% 0%, rgba(255,255,255,0.30), transparent 70%)" }} />
+      <Container className="relative">
         <motion.div variants={stagger(0.08)} initial="hidden" whileInView="show" viewport={viewportOnce} className="mx-auto flex max-w-2xl flex-col items-center text-center">
-          <motion.h2 variants={fadeUp} className="text-balance font-display text-4xl leading-[1.05] tracking-[-0.02em] text-fg md:text-6xl">
-            {finalCta.title}
-          </motion.h2>
-          <motion.div variants={fadeUp} className="mt-8">
-            <Button href="#pricing" variant="beacon" size="lg" glow>
-              {finalCta.cta}
-              <ArrowRight size={18} />
-            </Button>
-          </motion.div>
+          <motion.h2 variants={fadeUp} className="text-balance font-display text-4xl font-semibold leading-[1.05] tracking-[-0.02em] text-white md:text-[52px]">{finalCta.title}</motion.h2>
+          <motion.a variants={fadeUp} href="#pricing" whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }} transition={SPRING} className="mt-8 inline-flex h-14 items-center justify-center gap-2 rounded-full bg-white px-8 text-base font-semibold text-accent shadow-lift">
+            {finalCta.cta} <ArrowRight size={18} />
+          </motion.a>
           <motion.div variants={fadeUp} className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
             {finalCta.trust.map((t) => (
-              <span key={t} className="flex items-center gap-1.5 text-sm text-fg-2">
-                <Check size={15} className="text-success" /> {t}
-              </span>
+              <span key={t} className="flex items-center gap-1.5 text-sm text-white/90"><Check size={15} className="text-white" /> {t}</span>
             ))}
           </motion.div>
         </motion.div>
-
         <motion.div variants={stagger(0.06)} initial="hidden" whileInView="show" viewport={viewportOnce} className="mx-auto mt-14 grid max-w-4xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {finalCta.items.map((it) => (
-            <motion.div key={it.title} variants={fadeUp} className="rounded-card border border-border bg-surface-1/60 p-5 text-left backdrop-blur-sm">
-              <p className="text-sm font-semibold text-fg">{it.title}</p>
-              <p className="mt-2 text-xs leading-relaxed text-fg-2">{it.body}</p>
+          {finalCta.items.map((it, i) => (
+            <motion.div key={it.title} variants={fadeUp} className="rounded-card border border-white/20 bg-white/10 p-5 text-left backdrop-blur-sm">
+              <span className="grid h-11 w-11 place-items-center rounded-2xl bg-white shadow-soft">
+                <img src={brand.finalCta[i]} alt="" className="h-6 w-6" />
+              </span>
+              <p className="mt-4 text-sm font-semibold text-white">{it.title}</p>
+              <p className="mt-1.5 text-xs leading-relaxed text-white/80">{it.body}</p>
             </motion.div>
           ))}
         </motion.div>
       </Container>
-      <div className="mx-auto mt-16 max-w-5xl px-6 opacity-60">
-        <Waveform bars={72} height={36} />
-      </div>
+      <div className="relative mx-auto mt-16 max-w-5xl px-6 opacity-60"><Waveform bars={72} height={30} color="muted" /></div>
     </section>
   );
 }

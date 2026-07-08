@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useReducedMotion, animate } from "framer-motion";
 import { Container } from "../primitives/Container";
 import { stats } from "../../data/content";
+import { brand } from "../../data/assets";
 import { fadeUp, stagger, viewportOnce } from "../../lib/motion";
 
 function StatValue({ value }: { value: string }) {
@@ -14,15 +15,11 @@ function StatValue({ value }: { value: string }) {
   const [n, setN] = useState(reduce ? target : 0);
   useEffect(() => {
     if (!m || reduce || !inView) return;
-    const c = animate(0, target, {
-      duration: 1.2,
-      ease: [0.22, 1, 0.36, 1],
-      onUpdate: (v) => setN(Math.round(v)),
-    });
+    const c = animate(0, target, { duration: 1.2, ease: [0.22, 1, 0.36, 1], onUpdate: (v) => setN(Math.round(v)) });
     return () => c.stop();
   }, [inView, reduce, target]);
   return (
-    <span className="font-sans text-4xl font-bold tracking-tight text-fg md:text-[42px]">
+    <span className="font-display text-4xl font-semibold tracking-tight text-ink md:text-[40px]">
       <span ref={ref}>{m ? n : value}</span>
       <span className="text-accent">{suffix}</span>
     </span>
@@ -31,19 +28,14 @@ function StatValue({ value }: { value: string }) {
 
 export function Stats() {
   return (
-    <div className="border-y border-border bg-surface-1">
+    <div className="border-y border-border bg-white">
       <Container>
-        <motion.dl
-          variants={stagger(0.06)}
-          initial="hidden"
-          whileInView="show"
-          viewport={viewportOnce}
-          className="grid grid-cols-2 gap-y-8 py-12 sm:grid-cols-3 md:grid-cols-5 md:py-14"
-        >
-          {stats.map((s) => (
+        <motion.dl variants={stagger(0.06)} initial="hidden" whileInView="show" viewport={viewportOnce} className="grid grid-cols-2 gap-y-10 py-14 sm:grid-cols-3 md:grid-cols-5">
+          {stats.map((s, i) => (
             <motion.div key={s.label} variants={fadeUp} className="flex flex-col items-center gap-2 px-2 text-center">
+              <img src={brand.stats[i]} alt="" className="mb-1 h-9 w-9" />
               <dd><StatValue value={s.value} /></dd>
-              <dt className="text-sm text-muted">{s.label}</dt>
+              <dt className="text-sm text-ink-2">{s.label}</dt>
             </motion.div>
           ))}
         </motion.dl>

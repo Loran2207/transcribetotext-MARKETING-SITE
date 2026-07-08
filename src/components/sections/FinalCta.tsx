@@ -11,6 +11,8 @@ export function FinalCta() {
   return (
     <section className="relative overflow-hidden bg-dark-atmosphere py-24 md:py-28">
       <div aria-hidden="true" className="bg-dot-grid absolute inset-0 opacity-60" />
+      <div aria-hidden="true" className="pointer-events-none absolute -top-20 left-1/2 h-72 w-[38rem] -translate-x-1/2 rounded-full bg-accent/25 blur-[130px]" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
       <Container className="relative">
         <motion.div variants={stagger(0.08)} initial="hidden" whileInView="show" viewport={viewportOnce} className="mx-auto flex max-w-2xl flex-col items-center text-center">
           <motion.h2 variants={fadeUp} className="text-balance font-display text-4xl font-semibold leading-[1.05] tracking-[-0.02em] text-ink-invert md:text-[52px]">{finalCta.title}</motion.h2>
@@ -25,8 +27,8 @@ export function FinalCta() {
           {finalCta.items.map((it, i) => {
             const Icon = ICONS[i];
             return (
-              <motion.div key={it.title} variants={fadeUp} className="rounded-card border border-white/10 bg-white/5 p-5 text-left">
-                <span className="grid h-11 w-11 place-items-center rounded-2xl bg-accent/15 text-accent-glow"><Icon size={22} strokeWidth={1.6} /></span>
+              <motion.div key={it.title} variants={fadeUp} className="rounded-card border border-white/10 surface-dark p-5 text-left">
+                <span className="grid h-11 w-11 place-items-center rounded-2xl bg-accent/15 text-accent-glow ring-1 ring-inset ring-white/10"><Icon size={22} strokeWidth={1.6} /></span>
                 <p className="mt-4 text-sm font-semibold text-ink-invert">{it.title}</p>
                 <p className="mt-1.5 text-xs leading-relaxed text-muted-invert">{it.body}</p>
               </motion.div>

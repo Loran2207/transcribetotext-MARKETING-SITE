@@ -20,13 +20,13 @@ export function Languages() {
         initial="hidden"
         whileInView="show"
         viewport={viewportOnce}
-        className="mt-14 flex flex-col gap-3 overflow-hidden"
+        className="mt-10 flex flex-col gap-4 overflow-hidden py-4"
         style={{ WebkitMaskImage: MASK, maskImage: MASK }}
       >
         <LangRow items={row1} />
         <LangRow items={row2} reverse />
       </motion.div>
-      <div className="mt-12 flex justify-center">
+      <div className="mt-8 flex justify-center">
         <Button href="#" variant="outline" size="md">{languages.cta}</Button>
       </div>
     </Section>

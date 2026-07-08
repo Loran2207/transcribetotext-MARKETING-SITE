@@ -12,7 +12,6 @@ export function Pricing() {
   const p = pricing.premium;
   const price = yearly ? p.yearlyPrice : p.monthlyPrice;
   const note = yearly ? p.yearlyNote : p.monthlyNote;
-
   return (
     <Section id="pricing" tone="sky">
       <SectionHeading eyebrow="Pricing" title="Simple pricing that scales with you" />
@@ -22,9 +21,7 @@ export function Pricing() {
             <button key={label} onClick={() => setYearly(val)} className="relative rounded-full px-4 py-2 text-sm font-medium">
               {yearly === val && <motion.span layoutId="toggle" transition={SPRING} className="absolute inset-0 -z-10 rounded-full bg-accent" />}
               <span className={yearly === val ? "text-white" : "text-ink-2"}>{label === "monthly" ? pricing.toggle.monthly : pricing.toggle.yearly}</span>
-              {label === "yearly" && (
-                <span className={`ml-2 rounded-full px-2 py-0.5 text-[11px] font-semibold ${yearly ? "bg-white/25 text-white" : "bg-teal-soft text-teal"}`}>{pricing.toggle.save}</span>
-              )}
+              {label === "yearly" && <span className={`ml-2 rounded-full px-2 py-0.5 text-[11px] font-semibold ${yearly ? "bg-white/25 text-white" : "bg-accent-soft text-accent"}`}>{pricing.toggle.save}</span>}
             </button>
           ))}
         </div>
@@ -35,14 +32,9 @@ export function Pricing() {
           <p className="mt-4 font-display text-4xl font-semibold text-ink">{pricing.free.price}</p>
           <div className="mt-8"><Button href="#" variant="outline" size="lg" className="w-full">{pricing.free.cta}</Button></div>
           <ul className="mt-8 space-y-4">
-            {pricing.free.features.map((f) => (
-              <li key={f} className="flex gap-3 text-sm text-ink-2">
-                <Check size={18} className="mt-0.5 shrink-0 text-muted" /><span>{f}</span>
-              </li>
-            ))}
+            {pricing.free.features.map((f) => (<li key={f} className="flex gap-3 text-sm text-ink-2"><Check size={18} className="mt-0.5 shrink-0 text-muted" /><span>{f}</span></li>))}
           </ul>
         </motion.div>
-
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce} transition={{ duration: 0.6, delay: 0.08 }} className="relative rounded-tile border-2 border-accent bg-white p-8 shadow-lift">
           <div className="flex items-center justify-between">
             <p className="text-sm font-semibold text-ink">{p.name}</p>
@@ -56,12 +48,7 @@ export function Pricing() {
           </div>
           <div className="mt-8"><Button href="#" size="lg" className="w-full">{yearly ? p.ctaYearly : p.ctaMonthly}</Button></div>
           <ul className="mt-8 space-y-4">
-            {p.features.map((f) => (
-              <li key={f} className="flex gap-3 text-sm text-ink-2">
-                <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-teal-soft"><Check size={13} className="text-teal" /></span>
-                <span>{f}</span>
-              </li>
-            ))}
+            {p.features.map((f) => (<li key={f} className="flex gap-3 text-sm text-ink-2"><span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-accent-soft"><Check size={13} className="text-accent" /></span><span>{f}</span></li>))}
           </ul>
         </motion.div>
       </div>

@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { Play, ArrowRight } from "lucide-react";
 import { Button } from "../primitives/Button";
 import { GlowBackground } from "../primitives/GlowBackground";
+import { DashboardHero } from "../mocks/DashboardHero";
 import { hero } from "../../data/content";
-import { brand } from "../../data/assets";
 import { EASE_OUT, fadeUp, stagger } from "../../lib/motion";
 
 export function Hero() {
@@ -28,18 +28,13 @@ export function Hero() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 48 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.45, duration: 0.8, ease: EASE_OUT }}
-          className="relative mx-auto mt-16 max-w-2xl"
+          transition={{ delay: 0.4, duration: 0.9, ease: EASE_OUT }}
+          className="relative mx-auto mt-16 max-w-6xl"
         >
-          <GlowBackground className="inset-x-0 -top-4 bottom-8 opacity-90" />
-          <GlowBackground variant="teal" className="right-0 top-1/3 h-40 w-40 opacity-70" />
-          <img
-            src={brand.heroShot}
-            alt="TranscribeToText.AI upload and transcription interface"
-            className="relative mx-auto w-full drop-shadow-[0_30px_60px_rgba(16,24,40,0.16)]"
-          />
+          <GlowBackground className="inset-x-0 -top-10 bottom-16 opacity-90" />
+          <DashboardHero />
         </motion.div>
       </div>
     </section>

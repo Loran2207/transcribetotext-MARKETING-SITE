@@ -1,19 +1,16 @@
 export function GlowBackground({
   className = "",
-  variant = "blue",
+  intensity = "md",
 }: {
   className?: string;
-  variant?: "blue" | "teal";
+  intensity?: "sm" | "md" | "lg";
 }) {
-  const bg =
-    variant === "teal"
-      ? "radial-gradient(closest-side, rgba(42,175,167,0.22), rgba(42,175,167,0.06), transparent)"
-      : "radial-gradient(closest-side, rgba(0,136,235,0.20), rgba(0,136,235,0.05), transparent)";
+  const a = intensity === "lg" ? 0.3 : intensity === "sm" ? 0.14 : 0.2;
   return (
     <div
       aria-hidden="true"
-      className={`pointer-events-none absolute -z-10 blur-[70px] ${className}`}
-      style={{ background: bg }}
+      className={`pointer-events-none absolute -z-10 blur-[72px] ${className}`}
+      style={{ background: `radial-gradient(closest-side, rgba(37,99,235,${a}), rgba(37,99,235,${a * 0.3}), transparent)` }}
     />
   );
 }

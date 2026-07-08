@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Play, ArrowRight } from "lucide-react";
+import { Play, ArrowRight, FileVideo, Mic, Link2 } from "lucide-react";
 import { Button } from "../primitives/Button";
 import { Stars } from "../primitives/Stars";
 import { GlowBackground } from "../primitives/GlowBackground";
@@ -8,11 +8,18 @@ import { hero } from "../../data/content";
 import { EASE_OUT, fadeUp, stagger } from "../../lib/motion";
 
 const FADE = "linear-gradient(to bottom, black 0%, black 84%, transparent 100%)";
+const GRID_MASK = "linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.22) 38%, transparent 72%)";
+const PILLS = [
+  { label: "Audio & Video", Icon: FileVideo, color: "#2563EB", tint: "rgba(37,99,235,0.12)" },
+  { label: "Meeting Recorder", Icon: Mic, color: "#7C3AED", tint: "rgba(124,58,237,0.12)" },
+  { label: "Transcribe from Link", Icon: Link2, color: "#F59E0B", tint: "rgba(245,158,11,0.14)" },
+];
 
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden bg-hero-wash pt-32 pb-8 md:pt-40 md:pb-10">
-      <div className="mx-auto w-full max-w-[1200px] px-6 md:px-10">
+      <div aria-hidden="true" className="bg-grid-lines pointer-events-none absolute inset-0" style={{ WebkitMaskImage: GRID_MASK, maskImage: GRID_MASK }} />
+      <div className="relative mx-auto w-full max-w-[1200px] px-6 md:px-10">
         <motion.div variants={stagger(0.09)} initial="hidden" animate="show" className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <motion.span variants={fadeUp} className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3.5 py-1.5 text-xs font-medium text-accent shadow-soft">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" /> {hero.eyebrow}
@@ -32,6 +39,15 @@ export function Hero() {
             <span className="hidden text-border sm:inline">|</span>
             <span className="text-muted">No credit card required</span>
           </motion.div>
+        </motion.div>
+
+        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.34, duration: 0.6, ease: EASE_OUT }} className="mt-12 flex flex-wrap items-center justify-center gap-2.5">
+          {PILLS.map(({ label, Icon, color, tint }) => (
+            <span key={label} className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3.5 py-2 text-sm font-medium text-ink shadow-soft">
+              <span className="grid h-5 w-5 place-items-center rounded-md" style={{ background: tint, color }}><Icon size={12} strokeWidth={2.2} /></span>
+              {label}
+            </span>
+          ))}
         </motion.div>
 
         <motion.div initial={{ opacity: 0, y: 48 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.9, ease: EASE_OUT }} className="relative mx-auto mt-14 w-full max-w-6xl px-6">

@@ -3,7 +3,7 @@ import { Section } from "../primitives/Section";
 import { SectionHeading } from "../primitives/SectionHeading";
 import { Button } from "../primitives/Button";
 import { LangRow } from "../mocks/LangRow";
-import { GlobeViz } from "../mocks/GlobeViz";
+import { Globe3D } from "../mocks/Globe3D";
 import { languages } from "../../data/content";
 import { fadeUp, viewportOnce } from "../../lib/motion";
 
@@ -17,8 +17,10 @@ export function Languages() {
     <Section id="languages" tone="white" className="overflow-hidden">
       <SectionHeading eyebrow={`${languages.count} languages`} title={languages.title} subtitle={languages.subtitle} />
       <div className="relative mt-8">
-        <GlobeViz className="pointer-events-none absolute left-1/2 top-1/2 h-[440px] w-[440px] -translate-x-1/2 -translate-y-1/2 opacity-80" />
-        <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/2 h-[220px] w-[220px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/[0.04] blur-[60px]" />
+        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[460px] w-[460px] -translate-x-1/2 -translate-y-1/2">
+          <Globe3D />
+        </div>
+        <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/2 h-[260px] w-[260px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/[0.05] blur-[70px]" />
         <motion.div
           variants={fadeUp}
           initial="hidden"

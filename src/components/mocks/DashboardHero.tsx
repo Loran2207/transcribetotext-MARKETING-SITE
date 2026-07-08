@@ -16,7 +16,7 @@ export function DashboardHero() {
           <div className="h-7 w-7 rounded-full bg-accent-soft" />
           <div className="hidden leading-tight sm:block">
             <p className="text-[11px] font-semibold text-ink">admin@test.com</p>
-            <p className="text-[10px] text-muted">Pro Plan</p>
+            <p className="text-[10px] text-muted">Free Plan</p>
           </div>
         </div>
       </div>

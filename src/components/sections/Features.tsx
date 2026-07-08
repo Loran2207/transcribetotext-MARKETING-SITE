@@ -4,6 +4,7 @@ import { Container } from "../primitives/Container";
 import { SectionHeading } from "../primitives/SectionHeading";
 import { WaveViz } from "../mocks/WaveViz";
 import { IntegrationsViz } from "../mocks/IntegrationsViz";
+import { TranscriptMini, MeetingLiveMini, FormatDropMini } from "../mocks/FeatureViz";
 import { premiumFeatures } from "../../data/content";
 import { fadeUp, stagger, viewportOnce, SPRING } from "../../lib/motion";
 
@@ -38,7 +39,7 @@ export function Features() {
                   </div>
                   <h3 className="mt-5 text-lg font-semibold tracking-tight text-ink-invert">{f.title}</h3>
                   <p className="mt-2 text-pretty text-sm leading-relaxed text-muted-invert">{f.body}</p>
-                  {i === 0 ? <WaveViz /> : null}
+                  {i === 0 ? (<><WaveViz /><TranscriptMini /></>) : null}
                   {i === 1 ? (
                     <div className="mt-5 flex items-center gap-2">
                       <span className="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 text-[11px] text-muted-invert">1h audio</span>
@@ -51,8 +52,8 @@ export function Features() {
                       {["7-day money-back", "End-to-end encrypted"].map((x) => (<span key={x} className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 text-[11px] text-muted-invert"><Check size={12} className="text-accent-glow" />{x}</span>))}
                     </div>
                   ) : null}
-                  {i === 3 ? <IntegrationsViz /> : null}
-                  {i === 4 ? <Chips items={FORMATS} /> : null}
+                  {i === 3 ? (<><IntegrationsViz /><MeetingLiveMini /></>) : null}
+                  {i === 4 ? (<><FormatDropMini /><Chips items={FORMATS} /></>) : null}
                   {i === 5 ? <Chips items={EXPORTS} /> : null}
                 </div>
               </motion.div>

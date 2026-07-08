@@ -7,8 +7,9 @@ import { fadeUp, stagger, viewportOnce } from "../../lib/motion";
 
 export function Testimonials() {
   return (
-    <section id="reviews" className="bg-surface-soft py-20 md:py-28">
-      <Container>
+    <section id="reviews" className="relative overflow-hidden bg-surface-soft py-20 md:py-28">
+      <div aria-hidden="true" className="bg-dot-grid-light pointer-events-none absolute inset-0" style={{ WebkitMaskImage: "radial-gradient(120% 90% at 50% 0%, rgba(0,0,0,0.5), transparent 70%)", maskImage: "radial-gradient(120% 90% at 50% 0%, rgba(0,0,0,0.5), transparent 70%)" }} />
+      <Container className="relative">
         <motion.div variants={stagger(0.08)} initial="hidden" whileInView="show" viewport={viewportOnce} className="flex flex-col items-center gap-3 text-center">
           <motion.span variants={fadeUp} className="inline-flex items-center rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-accent shadow-soft">Reviews</motion.span>
           <motion.h2 variants={fadeUp} className="text-balance font-display text-3xl font-semibold tracking-[-0.02em] text-ink sm:text-4xl md:text-[44px] md:leading-[1.08]">{testimonials.title}</motion.h2>

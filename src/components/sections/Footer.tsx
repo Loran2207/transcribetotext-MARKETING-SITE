@@ -1,6 +1,7 @@
 import { Youtube, Facebook } from "lucide-react";
 import { Container } from "../primitives/Container";
 import { Logo } from "../primitives/Logo";
+import { Waveform } from "../primitives/Waveform";
 import { footer } from "../../data/content";
 
 const SOCIAL = { YouTube: Youtube, Facebook: Facebook } as const;
@@ -10,9 +11,7 @@ function Column({ title, items }: { title: string; items: string[] }) {
     <div>
       <p className="text-sm font-semibold text-ink">{title}</p>
       <ul className="mt-4 space-y-3">
-        {items.map((it) => (
-          <li key={it}><a href="#" className="text-sm text-ink-2 transition-colors hover:text-accent">{it}</a></li>
-        ))}
+        {items.map((it) => (<li key={it}><a href="#" className="text-sm text-ink-2 transition-colors hover:text-accent">{it}</a></li>))}
       </ul>
     </div>
   );
@@ -22,15 +21,16 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-surface-soft">
       <Container className="py-16">
-        <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+        <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div>
             <Logo />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink-2">AI-powered audio and video transcription in 117 languages, with 99% accuracy.</p>
-            <div className="mt-5 flex gap-3">
+            <Waveform bars={26} height={20} color="accent" className="mt-5 max-w-[170px] opacity-70" />
+            <div className="mt-6 flex gap-3">
               {footer.social.map((s) => {
                 const Icon = SOCIAL[s as keyof typeof SOCIAL];
                 return (
-                  <a key={s} href="#" aria-label={s} className="grid h-9 w-9 place-items-center rounded-full border border-border bg-white text-ink-2 shadow-soft transition-colors hover:text-accent">
+                  <a key={s} href="#" aria-label={s} className="grid h-9 w-9 place-items-center rounded-full border border-border bg-white text-ink-2 shadow-soft transition-all hover:-translate-y-0.5 hover:text-accent">
                     <Icon size={16} />
                   </a>
                 );

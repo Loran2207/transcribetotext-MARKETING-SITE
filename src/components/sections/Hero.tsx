@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Play, ArrowRight } from "lucide-react";
 import { Button } from "../primitives/Button";
+import { Stars } from "../primitives/Stars";
 import { GlowBackground } from "../primitives/GlowBackground";
 import { DashboardHero } from "../mocks/DashboardHero";
 import { hero } from "../../data/content";
@@ -26,21 +27,20 @@ export function Hero() {
             <Button href="#pricing" size="lg">{hero.primaryCta} <ArrowRight size={18} /></Button>
             <Button href="#how" variant="outline" size="lg"><Play size={16} /> {hero.secondaryCta}</Button>
           </motion.div>
-          <motion.p variants={fadeUp} className="mt-4 text-sm text-muted">No credit card required</motion.p>
+          <motion.div variants={fadeUp} className="mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-sm text-ink-2">
+            <span className="flex items-center gap-2"><Stars count={5} /> 4.9 from 300+ reviews</span>
+            <span className="hidden text-border sm:inline">|</span>
+            <span className="text-muted">No credit card required</span>
+          </motion.div>
+        </motion.div>
+
+        <motion.div initial={{ opacity: 0, y: 48 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.9, ease: EASE_OUT }} className="relative mx-auto mt-14 w-full max-w-6xl px-6">
+          <GlowBackground className="inset-x-0 -top-10 bottom-24 opacity-90" intensity="lg" />
+          <div style={{ WebkitMaskImage: FADE, maskImage: FADE }}>
+            <DashboardHero />
+          </div>
         </motion.div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 48 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 0.9, ease: EASE_OUT }}
-        className="relative mx-auto mt-16 w-full max-w-6xl px-6"
-      >
-        <GlowBackground className="inset-x-0 -top-10 bottom-24 opacity-90" intensity="lg" />
-        <div style={{ WebkitMaskImage: FADE, maskImage: FADE }}>
-          <DashboardHero />
-        </div>
-      </motion.div>
     </section>
   );
 }

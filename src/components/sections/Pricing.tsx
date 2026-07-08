@@ -13,7 +13,7 @@ export function Pricing() {
   const price = yearly ? p.yearlyPrice : p.monthlyPrice;
   const note = yearly ? p.yearlyNote : p.monthlyNote;
   return (
-    <Section id="pricing" tone="sky">
+    <Section id="pricing" tone="sky" className="overflow-hidden">
       <SectionHeading eyebrow="Pricing" title="Simple pricing that scales with you" />
       <div className="mt-8 flex justify-center">
         <div className="inline-flex items-center gap-1 rounded-full border border-border bg-white p-1 shadow-soft">

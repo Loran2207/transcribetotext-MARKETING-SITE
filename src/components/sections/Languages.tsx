@@ -14,7 +14,7 @@ const MASK = "linear-gradient(to right, transparent, black 10%, black 90%, trans
 
 export function Languages() {
   return (
-    <Section id="languages" tone="white">
+    <Section id="languages" tone="white" className="overflow-hidden">
       <SectionHeading eyebrow={`${languages.count} languages`} title={languages.title} subtitle={languages.subtitle} />
       <div className="relative mt-8">
         <GlobeViz className="pointer-events-none absolute left-1/2 top-1/2 h-[440px] w-[440px] -translate-x-1/2 -translate-y-1/2 opacity-80" />

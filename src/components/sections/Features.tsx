@@ -9,6 +9,16 @@ import { fadeUp, stagger, viewportOnce, SPRING } from "../../lib/motion";
 
 const ICONS = [InfinityIcon, Zap, ShieldCheck, Link2, FileAudio, Download];
 const WIDE = new Set([0, 3]);
+const FORMATS = ["MP3", "MP4", "WAV", "MOV", "M4A", "OGG"];
+const EXPORTS = ["DOCX", "PDF", "TXT", "SRT", "VTT"];
+
+function Chips({ items }: { items: string[] }) {
+  return (
+    <div className="mt-5 flex flex-wrap gap-1.5">
+      {items.map((x) => (<span key={x} className="rounded-md border border-white/10 bg-white/5 px-2 py-1 font-mono text-[10px] text-muted-invert">{x}</span>))}
+    </div>
+  );
+}
 
 export function Features() {
   return (
@@ -30,6 +40,8 @@ export function Features() {
                 <p className="mt-2 text-pretty text-sm leading-relaxed text-muted-invert">{f.body}</p>
                 {i === 0 ? <WaveViz /> : null}
                 {i === 3 ? <IntegrationsViz /> : null}
+                {i === 4 ? <Chips items={FORMATS} /> : null}
+                {i === 5 ? <Chips items={EXPORTS} /> : null}
               </motion.div>
             );
           })}

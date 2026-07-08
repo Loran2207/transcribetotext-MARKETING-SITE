@@ -6,8 +6,8 @@ type Variant = "primary" | "ghost" | "outline";
 type Size = "md" | "lg";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-accent text-white shadow-blue hover:bg-accent-dark",
-  outline: "border border-border bg-white text-ink shadow-soft hover:border-accent/40",
+  primary: "bg-[linear-gradient(180deg,#3B82F6_0%,#2563EB_100%)] text-white shadow-blue ring-1 ring-inset ring-white/20 hover:brightness-[1.05]",
+  outline: "border border-border bg-white text-ink shadow-soft hover:border-accent/40 hover:bg-surface-soft",
   ghost: "text-ink-2 hover:bg-ink/5 hover:text-ink",
 };
 
@@ -35,7 +35,7 @@ export function Button({
       whileHover={{ y: -2 }}
       whileTap={{ scale: 0.98 }}
       transition={SPRING}
-      className={`inline-flex items-center justify-center gap-2 rounded-full font-medium whitespace-nowrap transition-colors ${variants[variant]} ${sizes[size]} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 rounded-full font-medium whitespace-nowrap transition-all ${variants[variant]} ${sizes[size]} ${className}`}
     >
       {children}
     </motion.a>

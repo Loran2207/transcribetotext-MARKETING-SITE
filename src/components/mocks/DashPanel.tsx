@@ -1,13 +1,14 @@
-import { ChevronRight } from "lucide-react";
+import { Video } from "lucide-react";
 
 const SOURCES: [string, number, number][] = [
   ["Zoom", 138, 100], ["Google Meet", 92, 68], ["Microphone", 64, 46], ["File upload", 48, 34],
 ];
-const EVENTS: [string, string, number][] = [
-  ["09:30 - 10:00", "Design sync - weekly", 5],
-  ["11:00 - 11:30", "Product standup", 8],
-  ["14:00 - 15:00", "Nexora - QL - instance daily", 4],
-  ["16:30 - 17:00", "Customer onboarding call", 3],
+type Ev = { time: string; t: string; a: number; auto?: boolean };
+const EVENTS: Ev[] = [
+  { time: "09:30 - 10:00", t: "Design sync - weekly", a: 5, auto: true },
+  { time: "11:00 - 11:30", t: "Product standup", a: 8 },
+  { time: "14:00 - 15:00", t: "Nexora - QL - instance daily", a: 4 },
+  { time: "16:30 - 17:00", t: "Customer onboarding call", a: 3 },
 ];
 
 export function DashPanel() {
@@ -31,13 +32,19 @@ export function DashPanel() {
         </div>
       </div>
       <div>
-        <div className="flex items-center gap-1 text-[13px] font-semibold text-ink">Today's Events <ChevronRight size={14} className="text-muted" /></div>
+        <p className="text-[13px] font-semibold text-ink">Today's Events</p>
         <div className="mt-3 flex flex-col gap-2.5">
-          {EVENTS.map(([time, t, a]) => (
-            <div key={t} className="rounded-xl border border-border bg-white p-3">
-              <div className="flex items-center gap-2"><span className="h-2 w-2 rounded-full bg-accent" /><span className="font-mono text-[11px] text-ink-2">{time}</span></div>
-              <p className="mt-1.5 truncate text-[12px] font-medium text-ink">{t}</p>
-              <p className="mt-1 text-[11px] text-muted">{a} attendees</p>
+          {EVENTS.map((e) => (
+            <div key={e.t} className="flex gap-2.5 rounded-xl border border-border bg-white p-3">
+              <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-[#E6F4EA]"><Video size={15} className="text-[#00AC47]" /></span>
+              <div className="min-w-0 flex-1">
+                <p className="font-mono text-[11px] text-ink-2">{e.time}</p>
+                <p className="truncate text-[12px] font-medium text-ink">{e.t}</p>
+                <div className="mt-1 flex items-center gap-2.5">
+                  {e.auto ? <span className="flex items-center gap-1 text-[10px] text-muted"><span className="flex h-3 w-5 items-center rounded-full bg-accent px-0.5"><span className="ml-auto h-2 w-2 rounded-full bg-white" /></span> Auto-join</span> : null}
+                  <span className="text-[10px] text-muted">{e.a} attendees</span>
+                </div>
+              </div>
             </div>
           ))}
         </div>

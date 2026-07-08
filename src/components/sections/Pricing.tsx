@@ -26,8 +26,8 @@ export function Pricing() {
           ))}
         </div>
       </div>
-      <div className="mx-auto mt-12 grid max-w-4xl items-start gap-6 md:grid-cols-2">
-        <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce} transition={{ duration: 0.6 }} className="rounded-tile border border-border bg-white p-8 shadow-soft">
+      <div className="mx-auto mt-12 grid max-w-4xl gap-6 md:grid-cols-2">
+        <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce} transition={{ duration: 0.6 }} className="flex h-full flex-col rounded-tile border border-border bg-white p-8 shadow-soft">
           <p className="text-sm font-semibold text-ink-2">{pricing.free.name}</p>
           <p className="mt-4 font-display text-4xl font-semibold text-ink">{pricing.free.price}</p>
           <div className="mt-8"><Button href="#" variant="outline" size="lg" className="w-full">{pricing.free.cta}</Button></div>
@@ -35,10 +35,10 @@ export function Pricing() {
             {pricing.free.features.map((f) => (<li key={f} className="flex gap-3 text-sm text-ink-2"><Check size={18} className="mt-0.5 shrink-0 text-muted" /><span>{f}</span></li>))}
           </ul>
         </motion.div>
-        <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce} transition={{ duration: 0.6, delay: 0.08 }} className="relative">
+        <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce} transition={{ duration: 0.6, delay: 0.08 }} className="relative h-full">
           <div aria-hidden="true" className="pointer-events-none absolute -inset-4 -z-10 rounded-[36px] opacity-70 blur-2xl" style={{ background: "radial-gradient(closest-side, rgba(37,99,235,0.30), transparent)" }} />
-          <div className="rounded-tile p-[1.5px] shadow-blue" style={{ background: "linear-gradient(180deg,#3B82F6,#2563EB)" }}>
-            <div className="rounded-[26px] bg-white p-8">
+          <div className="h-full rounded-tile p-[1.5px] shadow-blue" style={{ background: "linear-gradient(180deg,#3B82F6,#2563EB)" }}>
+            <div className="flex h-full flex-col rounded-[26px] bg-white p-8">
               <div className="flex items-center justify-between">
                 <p className="text-sm font-semibold text-ink">{p.name}</p>
                 <span className="rounded-full px-3 py-1 text-xs font-semibold text-white" style={{ background: "linear-gradient(180deg,#3B82F6,#2563EB)" }}>{pricing.popular}</span>

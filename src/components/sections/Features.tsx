@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Infinity as InfinityIcon, Zap, ShieldCheck, Link2, FileAudio, Download, ArrowUpRight } from "lucide-react";
+import { Infinity as InfinityIcon, Zap, ShieldCheck, Link2, FileAudio, Download, ArrowUpRight, ArrowRight, Check } from "lucide-react";
 import { Container } from "../primitives/Container";
 import { SectionHeading } from "../primitives/SectionHeading";
 import { WaveViz } from "../mocks/WaveViz";
@@ -8,16 +8,12 @@ import { premiumFeatures } from "../../data/content";
 import { fadeUp, stagger, viewportOnce, SPRING } from "../../lib/motion";
 
 const ICONS = [InfinityIcon, Zap, ShieldCheck, Link2, FileAudio, Download];
-const WIDE = new Set([0, 3]);
-const FORMATS = ["MP3", "MP4", "WAV", "MOV", "M4A", "OGG"];
+const WIDE = new Set([0, 3, 4]);
+const FORMATS = ["MP3", "MP4", "WAV", "MOV", "M4A", "AAC", "OGG", "WMV"];
 const EXPORTS = ["DOCX", "PDF", "TXT", "SRT", "VTT"];
 
 function Chips({ items }: { items: string[] }) {
-  return (
-    <div className="mt-5 flex flex-wrap gap-1.5">
-      {items.map((x) => (<span key={x} className="rounded-md border border-white/10 bg-white/5 px-2 py-1 font-mono text-[10px] text-muted-invert">{x}</span>))}
-    </div>
-  );
+  return <div className="mt-5 flex flex-wrap gap-1.5">{items.map((x) => (<span key={x} className="rounded-md border border-white/10 bg-white/5 px-2 py-1 font-mono text-[10px] text-muted-invert">{x}</span>))}</div>;
 }
 
 export function Features() {
@@ -29,9 +25,8 @@ export function Features() {
         <motion.div variants={stagger(0.08)} initial="hidden" whileInView="show" viewport={viewportOnce} className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {premiumFeatures.items.map((f, i) => {
             const Icon = ICONS[i];
-            const wide = WIDE.has(i);
             return (
-              <motion.div key={f.title} variants={fadeUp} whileHover={{ y: -6 }} transition={SPRING} className={`group relative flex flex-col overflow-hidden rounded-tile border border-white/10 bg-dark-2 p-6 transition-colors hover:border-white/20 ${wide ? "lg:col-span-2" : ""}`}>
+              <motion.div key={f.title} variants={fadeUp} whileHover={{ y: -6 }} transition={SPRING} className={`group relative flex flex-col overflow-hidden rounded-tile border border-white/10 bg-dark-2 p-6 transition-colors hover:border-white/20 ${WIDE.has(i) ? "lg:col-span-2" : ""}`}>
                 <div className="flex items-start justify-between">
                   <span className="grid h-12 w-12 place-items-center rounded-2xl bg-accent/15 text-accent-glow"><Icon size={22} strokeWidth={1.6} /></span>
                   <ArrowUpRight size={18} className="text-white/25 opacity-0 transition-opacity group-hover:opacity-100" />
@@ -39,6 +34,18 @@ export function Features() {
                 <h3 className="mt-5 text-lg font-semibold tracking-tight text-ink-invert">{f.title}</h3>
                 <p className="mt-2 text-pretty text-sm leading-relaxed text-muted-invert">{f.body}</p>
                 {i === 0 ? <WaveViz /> : null}
+                {i === 1 ? (
+                  <div className="mt-5 flex items-center gap-2">
+                    <span className="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 text-[11px] text-muted-invert">1h audio</span>
+                    <ArrowRight size={14} className="shrink-0 text-accent-glow" />
+                    <span className="rounded-lg bg-accent/15 px-2.5 py-1.5 text-[11px] font-medium text-accent-glow">Text in ~12s</span>
+                  </div>
+                ) : null}
+                {i === 2 ? (
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {["7-day money-back", "End-to-end encrypted"].map((x) => (<span key={x} className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 text-[11px] text-muted-invert"><Check size={12} className="text-accent-glow" />{x}</span>))}
+                  </div>
+                ) : null}
                 {i === 3 ? <IntegrationsViz /> : null}
                 {i === 4 ? <Chips items={FORMATS} /> : null}
                 {i === 5 ? <Chips items={EXPORTS} /> : null}

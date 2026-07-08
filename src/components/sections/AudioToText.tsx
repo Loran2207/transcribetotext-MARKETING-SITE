@@ -7,7 +7,7 @@ import { EASE_OUT, fadeUp, stagger, viewportOnce } from "../../lib/motion";
 
 export function AudioToText() {
   return (
-    <section id="features" className="relative overflow-hidden bg-dark py-20 md:py-28">
+    <section id="features" className="relative overflow-hidden rounded-[36px] bg-dark py-20 md:rounded-[56px] md:py-28">
       <div aria-hidden="true" className="bg-dot-grid absolute inset-0 opacity-50" />
       <div aria-hidden="true" className="pointer-events-none absolute -top-20 right-1/3 h-72 w-72 rounded-full bg-accent/20 blur-[120px]" />
       <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/12 to-transparent" />

@@ -18,7 +18,7 @@ function Chips({ items }: { items: string[] }) {
 
 export function Features() {
   return (
-    <section id="premium" className="relative overflow-hidden bg-dark-atmosphere py-20 md:py-28">
+    <section id="premium" className="relative overflow-hidden rounded-[36px] bg-dark-atmosphere py-20 md:rounded-[56px] md:py-28">
       <div aria-hidden="true" className="bg-dot-grid absolute inset-0 opacity-70" />
       <div aria-hidden="true" className="pointer-events-none absolute -top-24 left-1/3 h-80 w-80 -translate-x-1/2 rounded-full bg-accent/25 blur-[120px]" />
       <div aria-hidden="true" className="pointer-events-none absolute bottom-8 right-1/4 h-72 w-72 rounded-full blur-[120px]" style={{ background: "rgba(109,91,255,0.20)" }} />

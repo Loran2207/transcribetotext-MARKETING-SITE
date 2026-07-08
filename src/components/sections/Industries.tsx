@@ -9,7 +9,7 @@ const ICONS = [GraduationCap, Radio, Landmark, HeartPulse, Newspaper, Scale, Meg
 
 export function Industries() {
   return (
-    <Section tone="white">
+    <Section tone="white" className="bg-dot-grid-light">
       <SectionHeading eyebrow="Who it is for" title={industries.title} subtitle={industries.subtitle} />
       <motion.div variants={stagger(0.06)} initial="hidden" whileInView="show" viewport={viewportOnce} className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3">
         {industries.list.map((name, i) => {

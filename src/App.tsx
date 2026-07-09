@@ -2,7 +2,7 @@ import { MotionConfig } from "framer-motion";
 import { Nav } from "./components/sections/Nav";
 import { Hero } from "./components/sections/Hero";
 import { Stats } from "./components/sections/Stats";
-import { AudioToText } from "./components/sections/AudioToText";
+import { TranscriptionServices } from "./components/sections/TranscriptionServices";
 import { HowItWorks } from "./components/sections/HowItWorks";
 import { Features } from "./components/sections/Features";
 import { SocialProof } from "./components/sections/SocialProof";
@@ -13,6 +13,7 @@ import { Testimonials } from "./components/sections/Testimonials";
 import { Faq } from "./components/sections/Faq";
 import { FinalCta } from "./components/sections/FinalCta";
 import { Footer } from "./components/sections/Footer";
+import { StickyCta } from "./components/sections/StickyCta";
 
 export default function App() {
   return (
@@ -21,7 +22,7 @@ export default function App() {
       <main>
         <Hero />
         <Stats />
-        <AudioToText />
+        <TranscriptionServices />
         <HowItWorks />
         <Features />
         <SocialProof />
@@ -33,6 +34,7 @@ export default function App() {
         <FinalCta />
       </main>
       <Footer />
+      <StickyCta />
     </MotionConfig>
   );
 }

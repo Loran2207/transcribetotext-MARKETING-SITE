@@ -194,3 +194,45 @@ export const footer = {
   copyright: "TranscribeToText.AI, 2024",
   companyDetails: "Mithrilmobile OU, Tallinn, J. Vilmsi 47, 10115",
 };
+
+export const transcriptionServices = {
+  eyebrow: "Services",
+  title: "Our Transcription Services",
+  autoMs: 6000,
+  tabs: [
+    {
+      key: "audio",
+      tab: "Audio to Text",
+      lead: "Audio to",
+      accent: "Text",
+      desc: "Upload any audio file, interviews, lectures, podcasts, and get instant, accurate transcripts powered by AI.",
+      cta: "Start transcribing audio",
+    },
+    {
+      key: "video",
+      tab: "Video to Text",
+      lead: "Video to",
+      accent: "Text",
+      desc: "Transcribe videos with audio in 125+ languages. Extract subtitles or full transcripts while preserving clarity and speaker separation.",
+      cta: "Start transcribing video",
+    },
+    {
+      key: "meeting",
+      tab: "Meeting Transcription",
+      lead: "Meeting",
+      accent: "Transcription",
+      desc: "Record and transcribe meetings from Zoom, Google Meet, and Teams. Capture every word and generate accurate summaries automatically.",
+      cta: "Start transcribing meeting",
+    },
+    {
+      key: "cloud",
+      tab: "Cloud File Transcription",
+      lead: "Cloud File",
+      accent: "Transcription",
+      desc: "Connect Google Drive, Dropbox, or OneDrive and transcribe audio or video directly from the cloud, no uploads needed.",
+      cta: "Transcribe cloud file",
+    },
+  ],
+};
+
+export const stickyCta = { label: "Continue", href: "#pricing" };

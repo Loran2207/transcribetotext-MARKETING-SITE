@@ -99,3 +99,5 @@
 @keyframes twinkle { 0%, 100% { opacity: 0.16; } 50% { opacity: 0.85; } }
 
 @keyframes heartShimmer { 0%, 100% { opacity: 0.32; } 50% { opacity: 0.92; } }
+
+@keyframes tabProgress { from { transform: scaleX(0); } to { transform: scaleX(1); } }

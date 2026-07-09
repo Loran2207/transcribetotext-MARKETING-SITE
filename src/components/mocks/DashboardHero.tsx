@@ -17,9 +17,9 @@ export function DashboardHero() {
           <HelpCircle size={14} /> support@transcribetotext.ai
         </span>
         <div className="flex items-center gap-2">
-          <img src={brand.avatars[0]} alt="" className="h-7 w-7 rounded-full object-cover ring-1 ring-border" />
+          <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-accent-soft text-[11px] font-semibold text-accent ring-1 ring-inset ring-accent/15">K</span>
           <div className="leading-tight">
-            <p className="text-[11px] font-semibold text-ink">Jordan Blake</p>
+            <p className="text-[11px] font-semibold text-ink">Kirill</p>
             <p className="text-[10px] text-muted">Pro Plan</p>
           </div>
           <ChevronDown size={13} className="text-muted" />

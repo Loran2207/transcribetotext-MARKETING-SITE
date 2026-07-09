@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Play, ArrowRight, FileVideo, Mic, Link2 } from "lucide-react";
+import { Play, ArrowRight, FileVideo, Mic, Link2, Plus } from "lucide-react";
 import { Button } from "../primitives/Button";
 import { Stars } from "../primitives/Stars";
 import { Waveform } from "../primitives/Waveform";
@@ -21,7 +21,7 @@ export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden bg-hero-wash pt-32 pb-8 md:pt-40 md:pb-10">
       <div aria-hidden="true" className="bg-grid-lines pointer-events-none absolute inset-0" style={{ WebkitMaskImage: GRID_MASK, maskImage: GRID_MASK }} />
-      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-[104px] z-0 opacity-[0.06]"><Waveform bars={200} height={96} color="accent" className="mx-auto max-w-[1200px]" /></div>
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-[-28px] z-0 opacity-[0.07]"><Waveform bars={210} height={196} color="accent" className="mx-auto max-w-[1240px]" /></div>
       <div className="relative mx-auto w-full max-w-[1200px] px-6 md:px-10">
         <motion.div variants={stagger(0.09)} initial="hidden" animate="show" className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <motion.span variants={fadeUp} className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3.5 py-1.5 text-xs font-medium text-accent shadow-soft">
@@ -60,6 +60,7 @@ export function Hero() {
               <DashboardHero />
             </ScaledFrame>
           </div>
+          <div aria-hidden="true" className="absolute bottom-5 right-9 z-10 grid h-12 w-12 place-items-center rounded-full bg-accent text-white shadow-blue"><Plus size={24} strokeWidth={2.5} /></div>
         </motion.div>
       </div>
     </section>

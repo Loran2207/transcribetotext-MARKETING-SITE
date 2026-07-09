@@ -8,7 +8,7 @@ const SOURCES: { label: string; value: number; pct: number }[] = [
 
 export function AnalyticsCard() {
   return (
-    <div className="rounded-[14px] border border-border bg-white p-[18px] shadow-soft">
+    <div className="rounded-[14px] border border-border bg-white p-[18px]">
       <p className="text-ink" style={{ fontWeight: 700, fontSize: "15px", letterSpacing: "-0.2px" }}>Analytics</p>
       <div className="mt-4 grid grid-cols-2 gap-3">
         <div>

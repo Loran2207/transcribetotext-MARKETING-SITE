@@ -18,7 +18,7 @@ export function DashSidebar() {
     <aside className="flex w-56 shrink-0 flex-col border-r border-border p-3">
       <nav className="flex flex-col gap-0.5">
         {NAV.map((n) => (
-          <span key={n.l} className={`flex items-center gap-2.5 rounded-lg px-3 py-2 text-[13px] font-medium ${n.a ? "bg-accent-soft text-accent" : "text-ink-2"}`}>
+          <span key={n.l} className={`flex items-center gap-2.5 rounded-[10px] px-3 py-2 text-[13px] font-medium ${n.a ? "bg-accent-soft text-accent" : "text-ink-2"}`}>
             <n.I size={16} /> {n.l}
           </span>
         ))}

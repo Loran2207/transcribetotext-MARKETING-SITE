@@ -14,27 +14,19 @@ const MASK = "linear-gradient(to right, transparent, black 10%, black 90%, trans
 
 export function Languages() {
   return (
-    <Section id="languages" tone="white" className="overflow-hidden">
+    <Section id="languages" tone="white" className="relative overflow-hidden">
       <SectionHeading eyebrow={`${languages.count} languages`} title={languages.title} subtitle={languages.subtitle} />
-      <div className="relative mt-8">
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[460px] w-[460px] -translate-x-1/2 -translate-y-1/2">
+      <div className="relative mt-10">
+        <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-[62%] h-[560px] w-[560px] -translate-x-1/2 -translate-y-1/2 sm:h-[820px] sm:w-[820px]">
           <Globe3D />
         </div>
-        <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/2 h-[260px] w-[260px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/[0.05] blur-[70px]" />
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={viewportOnce}
-          className="relative flex flex-col gap-4 overflow-hidden py-6"
-          style={{ WebkitMaskImage: MASK, maskImage: MASK }}
-        >
+        <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-[52%] h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/[0.05] blur-[80px]" />
+        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={viewportOnce} className="relative flex flex-col gap-4 overflow-hidden py-6" style={{ WebkitMaskImage: MASK, maskImage: MASK }}>
           <LangRow items={row1} />
           <LangRow items={row2} reverse />
         </motion.div>
-      </div>
-      <div className="mt-8 flex justify-center">
-        <Button href="#" variant="outline" size="md">{languages.cta}</Button>
+        <div className="relative mt-8 flex justify-center"><Button href="#" variant="outline" size="md">{languages.cta}</Button></div>
+        <div aria-hidden="true" className="h-44 sm:h-72" />
       </div>
     </Section>
   );

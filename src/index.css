@@ -97,3 +97,5 @@
 @keyframes caret { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
 @keyframes twinkle { 0%, 100% { opacity: 0.16; } 50% { opacity: 0.85; } }
+
+@keyframes heartShimmer { 0%, 100% { opacity: 0.32; } 50% { opacity: 0.92; } }

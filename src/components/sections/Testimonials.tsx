@@ -3,7 +3,7 @@ import { BadgeCheck } from "lucide-react";
 import { Container } from "../primitives/Container";
 import { SectionCutout } from "../primitives/SectionCutout";
 import { StarField } from "../mocks/StarField";
-import { CosmicGlow } from "../mocks/CosmicGlow";
+import { HeartGlow } from "../mocks/HeartGlow";
 import { Stars } from "../primitives/Stars";
 import { testimonials } from "../../data/content";
 import { brand } from "../../data/assets";
@@ -16,7 +16,7 @@ export function Testimonials() {
     <section id="reviews" className="relative overflow-hidden bg-dark-atmosphere py-20 md:py-28">
       <SectionCutout />
       <StarField />
-      <CosmicGlow variant="orbit" className="top-[-150px] opacity-80" />
+      <HeartGlow className="left-1/2 top-[-40px] -translate-x-1/2" />
       <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/12 to-transparent" />
       <Container className="relative">
         <motion.div variants={stagger(0.08)} initial="hidden" whileInView="show" viewport={viewportOnce} className="flex flex-col items-center gap-3 text-center">

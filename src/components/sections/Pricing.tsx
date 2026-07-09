@@ -43,8 +43,8 @@ export function Pricing() {
         <div className="mx-auto mt-12 grid max-w-4xl items-stretch gap-6 md:grid-cols-2">
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce} transition={{ duration: 0.6 }} className="flex h-full flex-col rounded-tile border border-border bg-white p-8 shadow-soft">
             <p className="text-sm font-semibold text-ink-2">{pricing.free.name}</p>
-            <p className="mt-3 font-display text-4xl font-semibold tracking-tight text-ink">{pricing.free.price}</p>
-            <ul className="mt-8 flex-1 space-y-4">
+            <div className="mt-3 flex min-h-[3.5rem] items-end"><p className="font-display text-4xl font-semibold tracking-tight text-ink">{pricing.free.price}</p></div>
+            <ul className="mt-7 flex-1 space-y-4 border-t border-border pt-7">
               {pricing.free.features.map((f) => (<Feature key={f}>{f}</Feature>))}
             </ul>
             <div className="mt-8"><Button href="#" variant="outline" size="lg" className="w-full">{pricing.free.cta}</Button></div>
@@ -58,13 +58,13 @@ export function Pricing() {
                   <p className="text-sm font-semibold text-ink">{p.name}</p>
                   <span className="rounded-full px-3 py-1 text-xs font-semibold text-white" style={{ background: "linear-gradient(180deg,#3B82F6,#2563EB)" }}>{pricing.popular}</span>
                 </div>
-                <div className="relative mt-3 flex items-end gap-2">
+                <div className="relative mt-3 flex min-h-[3.5rem] items-end gap-2">
                   <AnimatePresence mode="popLayout">
                     <motion.span key={price} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.25 }} className="font-display text-5xl font-semibold tracking-tight text-ink">{price}</motion.span>
                   </AnimatePresence>
                   <span className="mb-1.5 text-xs text-muted">{note}</span>
                 </div>
-                <ul className="relative mt-8 flex-1 space-y-4">
+                <ul className="relative mt-7 flex-1 space-y-4 border-t border-border pt-7">
                   {p.features.map((f) => (<Feature key={f}>{f}</Feature>))}
                 </ul>
                 <div className="relative mt-8"><Button href="#" size="lg" className="w-full">{yearly ? p.ctaYearly : p.ctaMonthly}</Button></div>

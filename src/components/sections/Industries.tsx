@@ -22,10 +22,10 @@ export function Industries() {
                 href="#"
                 variants={fadeUp}
                 whileHover={{ y: -4 }}
-                className="group relative flex items-center gap-3.5 overflow-hidden rounded-card border border-border bg-white p-4 shadow-soft transition-all hover:border-accent/40 hover:shadow-card"
+                className="group relative flex items-center gap-4 overflow-hidden rounded-card border border-border bg-white p-[18px] shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-card"
               >
                 <span aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: "linear-gradient(120deg, rgba(37,99,235,0.05), transparent 62%)" }} />
-                <span className="relative grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-2xl text-accent transition-colors duration-300 group-hover:text-white" style={{ background: "linear-gradient(160deg, #EAF1FE, #F7F9FC)" }}>
+                <span className="relative grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-2xl text-accent transition-all duration-300 group-hover:scale-105 group-hover:text-white" style={{ background: "linear-gradient(160deg, #EAF1FE, #F7F9FC)" }}>
                   <span aria-hidden="true" className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: "linear-gradient(160deg,#3B82F6,#2563EB)" }} />
                   <Icon size={21} strokeWidth={1.7} className="relative" />
                 </span>

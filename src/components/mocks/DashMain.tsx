@@ -16,7 +16,7 @@ const FILES: Row[] = [
 export function DashMain() {
   return (
     <main className="min-w-0 flex-1 p-5">
-      <h3 className="font-display text-2xl font-semibold text-ink">Good morning, Admin</h3>
+      <h3 className="font-display text-2xl font-semibold text-ink">Good morning, Jordan</h3>
       <DashActions />
       <div className="mt-7 flex items-center justify-between">
         <h4 className="text-sm font-semibold text-ink">My Records</h4>

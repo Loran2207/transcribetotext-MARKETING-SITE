@@ -7,7 +7,7 @@ import { HeartGlow } from "../mocks/HeartGlow";
 import { Stars } from "../primitives/Stars";
 import { testimonials } from "../../data/content";
 import { brand } from "../../data/assets";
-import { fadeUp, stagger, viewportOnce } from "../../lib/motion";
+import { fadeUp, scaleIn, stagger, viewportOnce } from "../../lib/motion";
 
 const handle = (u: string) => "@" + u.toLowerCase().replace(/[^a-z0-9]/g, "");
 
@@ -28,7 +28,7 @@ export function Testimonials() {
           {testimonials.items.map((t, i) => (
             <motion.figure
               key={t.user}
-              variants={fadeUp}
+              variants={scaleIn}
               whileHover={{ y: -4 }}
               className="group break-inside-avoid rounded-tile border border-white/10 surface-dark p-6 transition-colors hover:border-white/20"
             >

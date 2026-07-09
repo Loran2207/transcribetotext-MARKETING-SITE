@@ -9,7 +9,7 @@ import { TranscriptMini, MeetingLiveMini, FormatDropMini, SpeedViz } from "../mo
 import { StarField } from "../mocks/StarField";
 import { CosmicGlow } from "../mocks/CosmicGlow";
 import { premiumFeatures } from "../../data/content";
-import { fadeUp, stagger, viewportOnce, SPRING } from "../../lib/motion";
+import { scaleIn, stagger, viewportOnce, SPRING } from "../../lib/motion";
 
 const ICONS = [InfinityIcon, Zap, ShieldCheck, Link2, FileAudio, Download];
 const WIDE = new Set([0, 3, 4]);
@@ -35,7 +35,7 @@ export function Features() {
           {premiumFeatures.items.map((f, i) => {
             const Icon = ICONS[i];
             return (
-              <motion.div key={f.title} variants={fadeUp} whileHover={{ y: -6 }} transition={SPRING} className={`group relative flex flex-col overflow-hidden rounded-tile border border-white/10 surface-dark p-6 transition-colors hover:border-white/20 ${WIDE.has(i) ? "lg:col-span-2" : ""}`}>
+              <motion.div key={f.title} variants={scaleIn} whileHover={{ y: -6 }} transition={SPRING} className={`group relative flex flex-col overflow-hidden rounded-tile border border-white/10 surface-dark p-6 transition-colors hover:border-white/20 ${WIDE.has(i) ? "lg:col-span-2" : ""}`}>
                 <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" style={{ background: "radial-gradient(130% 60% at 50% 0%, rgba(37,99,235,0.20), transparent 70%)" }} />
                 <div className="relative flex flex-1 flex-col">
                   <div className="flex items-start justify-between">

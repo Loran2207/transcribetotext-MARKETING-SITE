@@ -3,9 +3,11 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { CountdownBar } from "../components/subscribe/CountdownBar";
+import { PromoCode } from "../components/subscribe/PromoCode";
 import { PlanCards } from "../components/subscribe/PlanCards";
 import { CheckoutModal } from "../components/subscribe/CheckoutModal";
-import { Guarantee, Benefits, Feedbacks, SafeCheckout } from "../components/subscribe/SubscribeSections";
+import { DarkFeedback } from "../components/subscribe/DarkFeedback";
+import { Guarantee, Benefits, SafeCheckout } from "../components/subscribe/SubscribeSections";
 import { Logo } from "../components/primitives/Logo";
 import { subscribe } from "../data/subscribe";
 import { fadeUp, stagger } from "../lib/motion";
@@ -18,23 +20,26 @@ export function SubscribePage() {
     <div className="min-h-screen bg-canvas">
       <CountdownBar onGetPlan={() => setOpen(true)} />
       <div className="bg-grid-lines-fine relative">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-[520px] bg-hero-wash" />
-        <div className="relative mx-auto w-full max-w-[1100px] px-4 pb-32 pt-10 sm:px-6">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-[540px] bg-hero-wash" />
+        <div className="relative mx-auto w-full max-w-[1100px] px-4 pt-10 sm:px-6">
           <div className="flex items-center justify-between">
             <Logo />
             <Link to="/" className="inline-flex items-center gap-1.5 text-sm font-medium text-ink-2 transition-colors hover:text-ink"><ArrowLeft size={15} /> Back to site</Link>
           </div>
           <motion.div variants={stagger(0.08)} initial="hidden" animate="show" className="mt-12 flex flex-col items-center text-center">
-            <motion.span variants={fadeUp} className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3.5 py-1.5 text-xs font-medium text-accent shadow-soft">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" /> {subscribe.promo.label}
-            </motion.span>
-            <motion.h1 variants={fadeUp} className="mt-6 text-balance font-display text-4xl font-semibold tracking-[-0.025em] text-ink sm:text-5xl">{subscribe.heading}</motion.h1>
+            <motion.h1 variants={fadeUp} className="text-balance font-display text-4xl font-semibold tracking-[-0.025em] text-ink sm:text-5xl">{subscribe.heading}</motion.h1>
             <motion.p variants={fadeUp} className="mx-auto mt-4 max-w-md text-pretty text-lg text-ink-2">{subscribe.subheading}</motion.p>
           </motion.div>
+          <PromoCode />
           <PlanCards selected={selected} onSelect={setSelected} />
           <Guarantee />
           <Benefits />
-          <Feedbacks />
+          <div className="h-16" />
+        </div>
+      </div>
+      <DarkFeedback />
+      <div className="bg-canvas">
+        <div className="mx-auto w-full max-w-[1100px] px-4 pb-32 pt-10 sm:px-6">
           <SafeCheckout />
         </div>
       </div>

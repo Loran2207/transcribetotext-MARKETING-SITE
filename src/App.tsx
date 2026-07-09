@@ -1,3 +1,4 @@
+import { MotionConfig } from "framer-motion";
 import { Nav } from "./components/sections/Nav";
 import { Hero } from "./components/sections/Hero";
 import { Stats } from "./components/sections/Stats";
@@ -15,7 +16,7 @@ import { Footer } from "./components/sections/Footer";
 
 export default function App() {
   return (
-    <>
+    <MotionConfig reducedMotion="user">
       <Nav />
       <main>
         <Hero />
@@ -32,6 +33,6 @@ export default function App() {
         <FinalCta />
       </main>
       <Footer />
-    </>
+    </MotionConfig>
   );
 }

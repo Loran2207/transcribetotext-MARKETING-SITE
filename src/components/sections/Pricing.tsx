@@ -7,7 +7,7 @@ import { SectionCutout } from "../primitives/SectionCutout";
 import { StarField } from "../mocks/StarField";
 import { CosmicGlow } from "../mocks/CosmicGlow";
 import { pricing } from "../../data/content";
-import { SPRING, viewportOnce } from "../../lib/motion";
+import { EASE_OUT, SPRING, viewportOnce } from "../../lib/motion";
 
 function Feature({ children }: { children: ReactNode }) {
   return (
@@ -28,10 +28,10 @@ export function Pricing() {
       <SectionCutout />
       <StarField />
       <CosmicGlow variant="orbit" className="top-[-120px] opacity-70" />
-      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/12 to-transparent" />
+      <motion.div aria-hidden="true" initial={{ scaleX: 0, opacity: 0 }} whileInView={{ scaleX: 1, opacity: 1 }} viewport={viewportOnce} transition={{ duration: 1.1, ease: EASE_OUT }} className="pointer-events-none absolute inset-x-0 top-0 h-px origin-center bg-gradient-to-r from-transparent via-white/12 to-transparent" />
       <Container className="relative">
         <SectionHeading eyebrow="Pricing" title="Simple pricing that scales with you" tone="dark" />
-        <div className="mt-8 flex justify-center">
+        <motion.div initial={{ opacity: 0, y: 16, filter: "blur(6px)" }} whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }} viewport={viewportOnce} transition={{ duration: 0.55, ease: EASE_OUT }} className="mt-8 flex justify-center">
           <div className="inline-flex items-center gap-1 rounded-full border border-white/15 bg-white/5 p-1">
             {([["monthly", false], ["yearly", true]] as const).map(([label, val]) => (
               <button key={label} onClick={() => setYearly(val)} className="relative rounded-full px-4 py-2 text-sm font-medium">
@@ -41,9 +41,9 @@ export function Pricing() {
               </button>
             ))}
           </div>
-        </div>
+        </motion.div>
         <div className="mx-auto mt-12 grid max-w-4xl items-stretch gap-6 md:grid-cols-2">
-          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce} transition={{ duration: 0.6 }} className="flex h-full flex-col rounded-tile border border-white/10 surface-dark p-8">
+          <motion.div initial={{ opacity: 0, x: -50, filter: "blur(10px)" }} whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }} viewport={viewportOnce} transition={{ duration: 0.8, ease: EASE_OUT }} className="flex h-full flex-col rounded-tile border border-white/10 surface-dark p-8">
             <p className="text-sm font-semibold text-muted-invert">{pricing.free.name}</p>
             <div className="mt-3 flex min-h-[3.5rem] items-end"><p className="font-display text-4xl font-semibold tracking-tight text-ink-invert">{pricing.free.price}</p></div>
             <ul className="mt-7 flex-1 space-y-4 border-t border-white/10 pt-7">
@@ -51,7 +51,7 @@ export function Pricing() {
             </ul>
             <a href="#" className="mt-8 inline-flex h-14 items-center justify-center rounded-full border border-white/15 bg-white/5 text-base font-medium text-ink-invert transition-colors hover:bg-white/10">{pricing.free.cta}</a>
           </motion.div>
-          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce} transition={{ duration: 0.6, delay: 0.08 }} className="relative h-full">
+          <motion.div initial={{ opacity: 0, x: 50, filter: "blur(10px)" }} whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }} viewport={viewportOnce} transition={{ duration: 0.8, ease: EASE_OUT, delay: 0.08 }} className="relative h-full">
             <div aria-hidden="true" className="pointer-events-none absolute -inset-3 -z-10 rounded-[38px] opacity-80 blur-2xl" style={{ background: "radial-gradient(closest-side, rgba(37,99,235,0.4), transparent)" }} />
             <div className="h-full rounded-tile p-[1.5px] shadow-blue" style={{ background: "linear-gradient(180deg,#3B82F6,#2563EB)" }}>
               <div className="relative flex h-full flex-col overflow-hidden rounded-[26px] surface-dark p-8">
@@ -74,7 +74,7 @@ export function Pricing() {
             </div>
           </motion.div>
         </div>
-        <p className="mt-8 text-center text-xs text-muted-invert">{pricing.badge}</p>
+        <motion.p initial={{ opacity: 0, filter: "blur(6px)" }} whileInView={{ opacity: 1, filter: "blur(0px)" }} viewport={viewportOnce} transition={{ duration: 0.6, ease: EASE_OUT }} className="mt-8 text-center text-xs text-muted-invert">{pricing.badge}</motion.p>
       </Container>
     </section>
   );

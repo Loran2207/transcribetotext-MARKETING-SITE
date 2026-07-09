@@ -3,7 +3,7 @@ import { Quote } from "lucide-react";
 import { Stars } from "../primitives/Stars";
 import { socialProof } from "../../data/content";
 import { brand } from "../../data/assets";
-import { scaleIn, viewportOnce } from "../../lib/motion";
+import { blurIn, viewportOnce } from "../../lib/motion";
 
 const CLUSTER = [0, 1, 2, 3];
 
@@ -12,7 +12,7 @@ export function SocialProof() {
     <section className="relative overflow-hidden bg-canvas py-16 md:py-24">
       <div className="mx-auto w-full max-w-[1200px] px-6 md:px-10">
         <motion.figure
-          variants={scaleIn}
+          variants={blurIn}
           initial="hidden"
           whileInView="show"
           viewport={viewportOnce}

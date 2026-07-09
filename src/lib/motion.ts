@@ -38,6 +38,12 @@ export const blurIn: Variants = {
   show: { opacity: 1, scale: 1, filter: "blur(0px)", transition: { duration: 0.95, ease: EASE_OUT } },
 };
 
+// Cards that hinge up into place - a subtle 3D flip for a tactile, premium entrance.
+export const tiltUp: Variants = {
+  hidden: { opacity: 0, y: 40, rotateX: -14, transformPerspective: 900, filter: "blur(10px)" },
+  show: { opacity: 1, y: 0, rotateX: 0, filter: "blur(0px)", transition: { duration: 0.8, ease: EASE_OUT } },
+};
+
 export function stagger(staggerChildren = 0.09, delayChildren = 0): Variants {
   return { hidden: {}, show: { transition: { staggerChildren, delayChildren } } };
 }

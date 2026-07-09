@@ -9,7 +9,7 @@ import { TranscriptMini, MeetingLiveMini, FormatDropMini, SpeedViz } from "../mo
 import { StarField } from "../mocks/StarField";
 import { CosmicGlow } from "../mocks/CosmicGlow";
 import { premiumFeatures } from "../../data/content";
-import { scaleIn, stagger, viewportOnce, SPRING } from "../../lib/motion";
+import { EASE_OUT, scaleIn, stagger, viewportOnce, SPRING } from "../../lib/motion";
 
 const ICONS = [InfinityIcon, Zap, ShieldCheck, Link2, FileAudio, Download];
 const WIDE = new Set([0, 3, 4]);
@@ -28,7 +28,7 @@ export function Features() {
       <CosmicGlow variant="orbit" className="top-[-120px]" />
       <div aria-hidden="true" className="pointer-events-none absolute -top-24 left-1/3 h-80 w-80 -translate-x-1/2 rounded-full bg-accent/25 blur-[120px]" />
       <div aria-hidden="true" className="pointer-events-none absolute bottom-8 right-1/4 h-72 w-72 rounded-full blur-[120px]" style={{ background: "rgba(109,91,255,0.20)" }} />
-      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+      <motion.div aria-hidden="true" initial={{ scaleX: 0, opacity: 0 }} whileInView={{ scaleX: 1, opacity: 1 }} viewport={viewportOnce} transition={{ duration: 1.1, ease: EASE_OUT }} className="pointer-events-none absolute inset-x-0 top-0 h-px origin-center bg-gradient-to-r from-transparent via-white/15 to-transparent" />
       <Container className="relative">
         <SectionHeading eyebrow="Premium" title={premiumFeatures.title} tone="dark" />
         <motion.div variants={stagger(0.08)} initial="hidden" whileInView="show" viewport={viewportOnce} className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">

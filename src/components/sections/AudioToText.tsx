@@ -15,7 +15,7 @@ export function AudioToText() {
       <StarField />
       <CosmicGlow variant="beam" />
       <div aria-hidden="true" className="pointer-events-none absolute -top-20 right-1/3 h-72 w-72 rounded-full bg-accent/20 blur-[120px]" />
-      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/12 to-transparent" />
+      <motion.div aria-hidden="true" initial={{ scaleX: 0, opacity: 0 }} whileInView={{ scaleX: 1, opacity: 1 }} viewport={viewportOnce} transition={{ duration: 1.1, ease: EASE_OUT }} className="pointer-events-none absolute inset-x-0 top-0 h-px origin-center bg-gradient-to-r from-transparent via-white/12 to-transparent" />
       <Container className="relative">
         <div className="grid items-center gap-12 md:grid-cols-12">
           <motion.div variants={stagger(0.08)} initial="hidden" whileInView="show" viewport={viewportOnce} className="md:col-span-6">
@@ -27,7 +27,7 @@ export function AudioToText() {
             </motion.div>
             <motion.a variants={fadeUp} href="#pricing" className="mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-glow">Start transcribing <ArrowRight size={15} /></motion.a>
           </motion.div>
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce} transition={{ duration: 0.7, ease: EASE_OUT }} className="relative md:col-span-6">
+          <motion.div initial={{ opacity: 0, x: 60, filter: "blur(12px)" }} whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }} viewport={viewportOnce} transition={{ duration: 0.85, ease: EASE_OUT }} className="relative md:col-span-6">
             <div aria-hidden="true" className="pointer-events-none absolute -inset-8 opacity-70 blur-[80px]" style={{ background: "radial-gradient(closest-side, rgba(37,99,235,0.35), transparent)" }} />
             <div className="relative"><AudioToTextViz /></div>
           </motion.div>

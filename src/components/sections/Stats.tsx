@@ -3,7 +3,7 @@ import { motion, useInView, useReducedMotion, animate } from "framer-motion";
 import { Target, Languages as LangIcon, Users, Heart, Lock } from "lucide-react";
 import { Container } from "../primitives/Container";
 import { stats } from "../../data/content";
-import { fadeUp, stagger, viewportOnce } from "../../lib/motion";
+import { scaleIn, stagger, viewportOnce } from "../../lib/motion";
 
 const ICONS = [Target, LangIcon, Users, Heart, Lock];
 
@@ -35,7 +35,7 @@ export function Stats() {
           {stats.map((s, i) => {
             const Icon = ICONS[i];
             return (
-              <motion.div key={s.label} variants={fadeUp} className="flex flex-col items-center gap-2 px-2 text-center">
+              <motion.div key={s.label} variants={scaleIn} className="flex flex-col items-center gap-2 px-2 text-center">
                 <span className="text-accent"><Icon size={24} strokeWidth={1.7} /></span>
                 <dd><StatValue value={s.value} /></dd>
                 <dt className="text-sm text-ink-2">{s.label}</dt>

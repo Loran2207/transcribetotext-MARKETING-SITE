@@ -236,3 +236,10 @@ export const transcriptionServices = {
 };
 
 export const stickyCta = { label: "Continue", href: "/subscribe" };
+
+export const security = {
+  eyebrow: "Security",
+  title: "Your transcripts stay private",
+  subtitle: "Every file is encrypted end-to-end. No one else can read your transcripts, not even us.",
+  chips: ["End-to-end encrypted", "100% privacy guarantee", "Delete files anytime"],
+};

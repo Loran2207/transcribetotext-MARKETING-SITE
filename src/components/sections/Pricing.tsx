@@ -32,7 +32,7 @@ export function Pricing() {
       <motion.div aria-hidden="true" initial={{ scaleX: 0, opacity: 0 }} whileInView={{ scaleX: 1, opacity: 1 }} viewport={viewportOnce} transition={{ duration: 1.1, ease: EASE_OUT }} className="pointer-events-none absolute inset-x-0 top-0 h-px origin-center bg-gradient-to-r from-transparent via-white/12 to-transparent" />
       <Container className="relative">
         <SectionHeading eyebrow="Pricing" title="Simple pricing that scales with you" tone="dark" />
-        <motion.div initial={{ opacity: 0, y: 16, filter: "blur(6px)" }} whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }} viewport={viewportOnce} transition={{ duration: 0.55, ease: EASE_OUT }} className="mt-8 flex justify-center">
+        <motion.div initial={{ opacity: 0, y: 16, filter: "blur(6px)" }} whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }} viewport={viewportOnce} transition={{ duration: 0.55, ease: EASE_OUT }} className="mt-12 flex justify-center">
           <div className="inline-flex items-center gap-1 rounded-full border border-white/15 bg-white/5 p-1">
             {([["monthly", false], ["yearly", true]] as const).map(([label, val]) => (
               <button key={label} onClick={() => setYearly(val)} className="relative rounded-full px-4 py-2 text-sm font-medium">

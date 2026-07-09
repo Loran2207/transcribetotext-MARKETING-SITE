@@ -9,8 +9,8 @@ const ICONS: Record<string, LucideIcon> = { zap: Zap, users: Users, captions: Ca
 
 export function Guarantee() {
   return (
-    <div className="mt-12 flex items-start gap-4 rounded-tile border border-deal/20 bg-deal-soft/50 p-6">
-      <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-white text-deal shadow-soft"><ShieldCheck size={22} /></span>
+    <div className="mt-12 flex items-start gap-4 rounded-tile border border-trust/25 bg-trust-soft p-6">
+      <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-white text-trust shadow-soft"><ShieldCheck size={22} /></span>
       <div>
         <p className="font-semibold text-ink">{subscribe.guarantee.title}</p>
         <p className="mt-1.5 text-sm leading-relaxed text-ink-2">{subscribe.guarantee.body}</p>

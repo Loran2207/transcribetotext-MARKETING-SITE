@@ -5,6 +5,7 @@ import { TranscriptionServices } from "../components/sections/TranscriptionServi
 import { HowItWorks } from "../components/sections/HowItWorks";
 import { Features } from "../components/sections/Features";
 import { SocialProof } from "../components/sections/SocialProof";
+import { Security } from "../components/sections/Security";
 import { Languages } from "../components/sections/Languages";
 import { Pricing } from "../components/sections/Pricing";
 import { Industries } from "../components/sections/Industries";
@@ -25,6 +26,7 @@ export function Landing() {
         <HowItWorks />
         <Features />
         <SocialProof />
+        <Security />
         <Languages />
         <Pricing />
         <Industries />

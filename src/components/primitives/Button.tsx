@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { SPRING } from "../../lib/motion";
 
 type Variant = "primary" | "ghost" | "outline";
@@ -16,6 +17,8 @@ const sizes: Record<Size, string> = {
   lg: "h-14 px-8 text-base",
 };
 
+const MotionLink = motion(Link);
+
 export function Button({
   children,
   href = "#",
@@ -29,14 +32,16 @@ export function Button({
   size?: Size;
   className?: string;
 }) {
+  const cls = `inline-flex items-center justify-center gap-2 rounded-full font-medium whitespace-nowrap transition-all ${variants[variant]} ${sizes[size]} ${className}`;
+  if (href.startsWith("/")) {
+    return (
+      <MotionLink to={href} whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }} transition={SPRING} className={cls}>
+        {children}
+      </MotionLink>
+    );
+  }
   return (
-    <motion.a
-      href={href}
-      whileHover={{ y: -2 }}
-      whileTap={{ scale: 0.98 }}
-      transition={SPRING}
-      className={`inline-flex items-center justify-center gap-2 rounded-full font-medium whitespace-nowrap transition-all ${variants[variant]} ${sizes[size]} ${className}`}
-    >
+    <motion.a href={href} whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }} transition={SPRING} className={cls}>
       {children}
     </motion.a>
   );

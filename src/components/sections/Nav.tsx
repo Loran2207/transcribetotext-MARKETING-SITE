@@ -22,7 +22,7 @@ export function Nav() {
         </ul>
         <div className="ml-auto flex items-center gap-2 sm:gap-3">
           <a href="#" className="hidden text-sm font-medium text-ink-2 transition-colors hover:text-ink sm:block">{nav.login}</a>
-          <Button href="#pricing" size="md" className="hidden sm:inline-flex">{nav.cta}</Button>
+          <Button href="/subscribe" size="md" className="hidden sm:inline-flex">{nav.cta}</Button>
           <button onClick={() => setOpen((v) => !v)} aria-label="Menu" className="grid h-10 w-10 place-items-center rounded-full border border-border bg-white text-ink shadow-soft lg:hidden">
             {open ? <X size={18} /> : <Menu size={18} />}
           </button>
@@ -36,7 +36,7 @@ export function Nav() {
             </ul>
             <div className="mt-3 flex flex-col gap-2 border-t border-border pt-3">
               <a href="#" className="rounded-lg px-3 py-2.5 text-sm font-medium text-ink-2">{nav.login}</a>
-              <Button href="#pricing" size="md" className="w-full">{nav.cta}</Button>
+              <Button href="/subscribe" size="md" className="w-full">{nav.cta}</Button>
             </div>
           </motion.div>
         )}

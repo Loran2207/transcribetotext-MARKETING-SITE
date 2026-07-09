@@ -1,40 +1,23 @@
+import { useEffect } from "react";
 import { MotionConfig } from "framer-motion";
-import { Nav } from "./components/sections/Nav";
-import { Hero } from "./components/sections/Hero";
-import { Stats } from "./components/sections/Stats";
-import { TranscriptionServices } from "./components/sections/TranscriptionServices";
-import { HowItWorks } from "./components/sections/HowItWorks";
-import { Features } from "./components/sections/Features";
-import { SocialProof } from "./components/sections/SocialProof";
-import { Languages } from "./components/sections/Languages";
-import { Pricing } from "./components/sections/Pricing";
-import { Industries } from "./components/sections/Industries";
-import { Testimonials } from "./components/sections/Testimonials";
-import { Faq } from "./components/sections/Faq";
-import { FinalCta } from "./components/sections/FinalCta";
-import { Footer } from "./components/sections/Footer";
-import { StickyCta } from "./components/sections/StickyCta";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { Landing } from "./pages/Landing";
+import { SubscribePage } from "./pages/SubscribePage";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
+}
 
 export default function App() {
   return (
     <MotionConfig reducedMotion="user">
-      <Nav />
-      <main>
-        <Hero />
-        <Stats />
-        <TranscriptionServices />
-        <HowItWorks />
-        <Features />
-        <SocialProof />
-        <Languages />
-        <Pricing />
-        <Industries />
-        <Testimonials />
-        <Faq />
-        <FinalCta />
-      </main>
-      <Footer />
-      <StickyCta />
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/subscribe" element={<SubscribePage />} />
+      </Routes>
     </MotionConfig>
   );
 }

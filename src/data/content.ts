@@ -235,4 +235,4 @@ export const transcriptionServices = {
   ],
 };
 
-export const stickyCta = { label: "Continue", href: "#pricing" };
+export const stickyCta = { label: "Continue", href: "/subscribe" };

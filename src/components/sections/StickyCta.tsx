@@ -1,6 +1,9 @@
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { stickyCta } from "../../data/content";
+
+const MotionLink = motion(Link);
 
 // A floating, levitating pill CTA pinned to the bottom on every screen.
 // It fades up after a little scroll and gently bobs (motion honors reduced-motion).
@@ -11,8 +14,8 @@ export function StickyCta() {
   const reduce = useReducedMotion();
   return (
     <motion.div style={{ opacity, y: lift }} className="pointer-events-none fixed inset-x-0 bottom-6 z-40 flex justify-center px-4">
-      <motion.a
-        href={stickyCta.href}
+      <MotionLink
+        to={stickyCta.href}
         animate={reduce ? undefined : { y: [0, -5, 0] }}
         transition={reduce ? undefined : { duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
         whileHover={{ scale: 1.03 }}
@@ -21,7 +24,7 @@ export function StickyCta() {
         style={{ boxShadow: "0 14px 44px rgba(37,99,235,0.55), 0 2px 8px rgba(37,99,235,0.4)" }}
       >
         {stickyCta.label} <ArrowRight size={18} />
-      </motion.a>
+      </MotionLink>
     </motion.div>
   );
 }

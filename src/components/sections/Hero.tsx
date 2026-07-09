@@ -34,7 +34,7 @@ export function Hero() {
             {hero.subtitle}
           </motion.p>
           <motion.div variants={fadeUp} className="mt-9 flex flex-col items-center gap-3 sm:flex-row">
-            <Button href="#pricing" size="lg">{hero.primaryCta} <ArrowRight size={18} /></Button>
+            <Button href="/subscribe" size="lg">{hero.primaryCta} <ArrowRight size={18} /></Button>
             <Button href="#how" variant="outline" size="lg"><Play size={16} /> {hero.secondaryCta}</Button>
           </motion.div>
           <motion.div variants={fadeUp} className="mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-sm text-ink-2">

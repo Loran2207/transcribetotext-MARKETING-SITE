@@ -1,5 +1,6 @@
 import { useState, type ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
 import { Container } from "../primitives/Container";
 import { SectionHeading } from "../primitives/SectionHeading";
@@ -49,7 +50,7 @@ export function Pricing() {
             <ul className="mt-7 flex-1 space-y-4 border-t border-white/10 pt-7">
               {pricing.free.features.map((f) => (<Feature key={f}>{f}</Feature>))}
             </ul>
-            <a href="#" className="mt-8 inline-flex h-14 items-center justify-center rounded-full border border-white/15 bg-white/5 text-base font-medium text-ink-invert transition-colors hover:bg-white/10">{pricing.free.cta}</a>
+            <Link to="/subscribe" className="mt-8 inline-flex h-14 items-center justify-center rounded-full border border-white/15 bg-white/5 text-base font-medium text-ink-invert transition-colors hover:bg-white/10">{pricing.free.cta}</Link>
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 50, filter: "blur(10px)" }} whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }} viewport={viewportOnce} transition={{ duration: 0.8, ease: EASE_OUT, delay: 0.08 }} className="relative h-full">
             <div aria-hidden="true" className="pointer-events-none absolute -inset-3 -z-10 rounded-[38px] opacity-80 blur-2xl" style={{ background: "radial-gradient(closest-side, rgba(37,99,235,0.4), transparent)" }} />
@@ -69,7 +70,7 @@ export function Pricing() {
                 <ul className="relative mt-7 flex-1 space-y-4 border-t border-white/10 pt-7">
                   {p.features.map((f) => (<Feature key={f}>{f}</Feature>))}
                 </ul>
-                <a href="#" className="relative mt-8 inline-flex h-14 items-center justify-center rounded-full bg-[linear-gradient(180deg,#3B82F6_0%,#2563EB_100%)] text-base font-semibold text-white shadow-blue ring-1 ring-inset ring-white/20 transition-all hover:brightness-[1.05]">{yearly ? p.ctaYearly : p.ctaMonthly}</a>
+                <Link to="/subscribe" className="relative mt-8 inline-flex h-14 items-center justify-center rounded-full bg-[linear-gradient(180deg,#3B82F6_0%,#2563EB_100%)] text-base font-semibold text-white shadow-blue ring-1 ring-inset ring-white/20 transition-all hover:brightness-[1.05]">{yearly ? p.ctaYearly : p.ctaMonthly}</Link>
               </div>
             </div>
           </motion.div>

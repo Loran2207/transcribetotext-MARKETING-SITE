@@ -24,7 +24,7 @@ export function Testimonials() {
           <motion.h2 variants={fadeUp} className="text-balance font-display text-3xl font-semibold tracking-[-0.02em] text-ink-invert sm:text-4xl md:text-[44px] md:leading-[1.08]">{testimonials.title}</motion.h2>
           <motion.div variants={fadeUp} className="flex items-center gap-2"><Stars count={5} /><span className="text-sm text-muted-invert">{testimonials.rating}</span></motion.div>
         </motion.div>
-        <motion.div variants={stagger(0.07)} initial="hidden" whileInView="show" viewport={viewportOnce} className="mt-12 columns-1 gap-5 sm:columns-2 lg:columns-3 [&>*]:mb-5">
+        <motion.div variants={stagger(0.07)} initial="hidden" whileInView="show" viewport={viewportOnce} className="mt-12 grid grid-cols-1 items-start gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {testimonials.items.map((t, i) => (
             <motion.figure
               key={t.user}

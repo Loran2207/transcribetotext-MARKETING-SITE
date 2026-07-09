@@ -4,6 +4,7 @@ import { Container } from "../primitives/Container";
 import { SectionCutout } from "../primitives/SectionCutout";
 import { AudioToTextViz } from "../mocks/AudioToTextViz";
 import { StarField } from "../mocks/StarField";
+import { CosmicGlow } from "../mocks/CosmicGlow";
 import { audioToText } from "../../data/content";
 import { EASE_OUT, fadeUp, stagger, viewportOnce } from "../../lib/motion";
 
@@ -12,6 +13,7 @@ export function AudioToText() {
     <section id="features" className="relative overflow-hidden bg-dark py-20 md:py-28">
       <SectionCutout />
       <StarField />
+      <CosmicGlow variant="beam" />
       <div aria-hidden="true" className="pointer-events-none absolute -top-20 right-1/3 h-72 w-72 rounded-full bg-accent/20 blur-[120px]" />
       <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/12 to-transparent" />
       <Container className="relative">

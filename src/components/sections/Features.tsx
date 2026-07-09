@@ -7,6 +7,7 @@ import { WaveViz } from "../mocks/WaveViz";
 import { IntegrationsViz } from "../mocks/IntegrationsViz";
 import { TranscriptMini, MeetingLiveMini, FormatDropMini, SpeedViz } from "../mocks/FeatureViz";
 import { StarField } from "../mocks/StarField";
+import { CosmicGlow } from "../mocks/CosmicGlow";
 import { premiumFeatures } from "../../data/content";
 import { fadeUp, stagger, viewportOnce, SPRING } from "../../lib/motion";
 
@@ -24,6 +25,7 @@ export function Features() {
     <section id="premium" className="relative overflow-hidden bg-dark-atmosphere py-20 md:py-28">
       <SectionCutout />
       <StarField />
+      <CosmicGlow variant="orbit" className="top-[-120px]" />
       <div aria-hidden="true" className="pointer-events-none absolute -top-24 left-1/3 h-80 w-80 -translate-x-1/2 rounded-full bg-accent/25 blur-[120px]" />
       <div aria-hidden="true" className="pointer-events-none absolute bottom-8 right-1/4 h-72 w-72 rounded-full blur-[120px]" style={{ background: "rgba(109,91,255,0.20)" }} />
       <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />

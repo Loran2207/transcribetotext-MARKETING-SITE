@@ -4,6 +4,7 @@ import { Container } from "../primitives/Container";
 import { SectionCutout } from "../primitives/SectionCutout";
 import { Waveform } from "../primitives/Waveform";
 import { StarField } from "../mocks/StarField";
+import { CosmicGlow } from "../mocks/CosmicGlow";
 import { finalCta } from "../../data/content";
 import { fadeUp, stagger, viewportOnce, SPRING } from "../../lib/motion";
 
@@ -14,6 +15,7 @@ export function FinalCta() {
     <section className="relative overflow-hidden bg-dark-atmosphere py-24 md:py-28">
       <SectionCutout />
       <StarField />
+      <CosmicGlow variant="beam" />
       <div aria-hidden="true" className="pointer-events-none absolute -top-20 left-1/2 h-72 w-[38rem] -translate-x-1/2 rounded-full bg-accent/25 blur-[130px]" />
       <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
       <Container className="relative">

@@ -28,10 +28,10 @@ export function DashMain() {
       <div className="mt-3 flex items-center gap-3 border-b border-border px-2 py-2 text-[11px] font-medium text-muted">
         <span className="h-3.5 w-3.5 shrink-0 rounded border border-border" />
         <span className="flex flex-1 items-center gap-1">Type <ChevronDown size={11} /></span>
-        <span className="hidden w-28 items-center gap-1 sm:flex">Template</span>
-        <span className="hidden w-8 md:block">Lang</span>
-        <span className="hidden w-16 md:block">Duration</span>
-        <span className="hidden w-32 lg:block">Date</span>
+        <span className="flex w-28 items-center gap-1">Template</span>
+        <span className="block w-8">Lang</span>
+        <span className="block w-16">Duration</span>
+        <span className="block w-32">Date</span>
       </div>
       {FOLDERS.map(([name, c]) => (
         <div key={name} className="flex items-center gap-3 border-b border-border px-2 py-2.5 text-[13px]">
@@ -45,10 +45,10 @@ export function DashMain() {
           <span className="h-3.5 w-3.5 shrink-0 rounded border border-border" />
           <span className="grid h-6 w-6 shrink-0 place-items-center rounded-md" style={{ background: f.bg }}><Video size={13} style={{ color: f.color }} /></span>
           <span className="flex min-w-0 flex-1 items-center gap-2"><span className="truncate font-medium text-ink">{f.t}</span>{f.shared ? <span className="shrink-0 rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-medium text-accent">Shared</span> : null}</span>
-          <span className="hidden w-28 sm:block"><span className="rounded-md bg-surface-soft px-2 py-0.5 text-[11px] text-ink-2">{f.tpl}</span></span>
-          <span className="hidden w-8 md:block"><img src={brand.langFlags.English} alt="EN" className="h-4 w-4 rounded-full object-cover" /></span>
-          <span className="hidden w-16 font-mono text-[11px] text-muted md:block">{f.d}</span>
-          <span className="hidden w-32 font-mono text-[11px] text-muted lg:block">{f.date}</span>
+          <span className="block w-28"><span className="rounded-md bg-surface-soft px-2 py-0.5 text-[11px] text-ink-2">{f.tpl}</span></span>
+          <span className="block w-8"><img src={brand.langFlags.English} alt="EN" className="h-4 w-4 rounded-full object-cover" /></span>
+          <span className="block w-16 font-mono text-[11px] text-muted">{f.d}</span>
+          <span className="block w-32 font-mono text-[11px] text-muted">{f.date}</span>
         </div>
       ))}
     </main>

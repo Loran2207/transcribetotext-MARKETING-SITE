@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
 import { Infinity as InfinityIcon, Zap, ShieldCheck, Link2, FileAudio, Download, ArrowUpRight, ArrowRight, Check } from "lucide-react";
 import { Container } from "../primitives/Container";
+import { SectionCutout } from "../primitives/SectionCutout";
 import { SectionHeading } from "../primitives/SectionHeading";
 import { WaveViz } from "../mocks/WaveViz";
 import { IntegrationsViz } from "../mocks/IntegrationsViz";
-import { TranscriptMini, MeetingLiveMini, FormatDropMini } from "../mocks/FeatureViz";
+import { TranscriptMini, MeetingLiveMini, FormatDropMini, SpeedViz } from "../mocks/FeatureViz";
+import { StarField } from "../mocks/StarField";
 import { premiumFeatures } from "../../data/content";
 import { fadeUp, stagger, viewportOnce, SPRING } from "../../lib/motion";
 
@@ -19,8 +21,9 @@ function Chips({ items }: { items: string[] }) {
 
 export function Features() {
   return (
-    <section id="premium" className="relative overflow-hidden rounded-[36px] bg-dark-atmosphere py-20 md:rounded-[56px] md:py-28">
-      <div aria-hidden="true" className="bg-dot-grid absolute inset-0 opacity-70" />
+    <section id="premium" className="relative overflow-hidden bg-dark-atmosphere py-20 md:py-28">
+      <SectionCutout />
+      <StarField />
       <div aria-hidden="true" className="pointer-events-none absolute -top-24 left-1/3 h-80 w-80 -translate-x-1/2 rounded-full bg-accent/25 blur-[120px]" />
       <div aria-hidden="true" className="pointer-events-none absolute bottom-8 right-1/4 h-72 w-72 rounded-full blur-[120px]" style={{ background: "rgba(109,91,255,0.20)" }} />
       <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
@@ -41,11 +44,14 @@ export function Features() {
                   <p className="mt-2 text-pretty text-sm leading-relaxed text-muted-invert">{f.body}</p>
                   {i === 0 ? (<><WaveViz /><TranscriptMini /></>) : null}
                   {i === 1 ? (
-                    <div className="mt-5 flex items-center gap-2">
-                      <span className="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 text-[11px] text-muted-invert">1h audio</span>
-                      <ArrowRight size={14} className="shrink-0 text-accent-glow" />
-                      <span className="rounded-lg bg-accent/15 px-2.5 py-1.5 text-[11px] font-medium text-accent-glow">Text in ~12s</span>
-                    </div>
+                    <>
+                      <div className="mt-5 flex items-center gap-2">
+                        <span className="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 text-[11px] text-muted-invert">1h audio</span>
+                        <ArrowRight size={14} className="shrink-0 text-accent-glow" />
+                        <span className="rounded-lg bg-accent/15 px-2.5 py-1.5 text-[11px] font-medium text-accent-glow">Text in ~12s</span>
+                      </div>
+                      <SpeedViz />
+                    </>
                   ) : null}
                   {i === 2 ? (
                     <div className="mt-5 flex flex-wrap gap-2">

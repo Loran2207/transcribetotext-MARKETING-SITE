@@ -39,7 +39,7 @@ function MeetingItem() {
 
 export function DashPanel() {
   return (
-    <aside className="hidden w-80 shrink-0 flex-col gap-[14px] border-l border-border p-[18px] xl:flex">
+    <aside className="flex w-80 shrink-0 flex-col gap-[14px] border-l border-border p-[18px]">
       <PromoCard />
       <FreePlanCard />
       <div className="h-[6px]" />

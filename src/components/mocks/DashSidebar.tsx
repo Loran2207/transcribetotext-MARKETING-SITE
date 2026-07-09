@@ -1,5 +1,4 @@
-import { Home, FileText, Users, Calendar, LayoutTemplate, Plus, Puzzle, ChevronLeft } from "lucide-react";
-import { brand } from "../../data/assets";
+import { Home, FileText, Users, Calendar, LayoutTemplate, Plus, Puzzle, ChevronLeft, Folder } from "lucide-react";
 
 const NAV = [
   { I: Home, l: "Home", a: true },
@@ -16,8 +15,7 @@ const FOLDERS: [string, string][] = [
 
 export function DashSidebar() {
   return (
-    <aside className="hidden w-56 shrink-0 flex-col border-r border-border p-3 lg:flex">
-      <img src={brand.logo} alt="" className="mb-4 ml-2 mt-1 h-6 w-auto" />
+    <aside className="flex w-56 shrink-0 flex-col border-r border-border p-3">
       <nav className="flex flex-col gap-0.5">
         {NAV.map((n) => (
           <span key={n.l} className={`flex items-center gap-2.5 rounded-lg px-3 py-2 text-[13px] font-medium ${n.a ? "bg-accent-soft text-accent" : "text-ink-2"}`}>
@@ -34,7 +32,7 @@ export function DashSidebar() {
       <div className="mt-2 flex flex-col gap-0.5">
         {FOLDERS.map(([l, c]) => (
           <span key={l} className="flex items-center gap-2.5 rounded-lg px-3 py-1.5 text-[13px] text-ink-2">
-            <span className="h-3.5 w-3.5 rounded-[4px]" style={{ background: c }} /> {l}
+            <Folder size={15} strokeWidth={0} fill={c} className="shrink-0" /> {l}
           </span>
         ))}
       </div>

@@ -1,4 +1,4 @@
-import { UploadCloud } from "lucide-react";
+import { UploadCloud, Check } from "lucide-react";
 
 const LINES = [
   { who: "Speaker 1", t: "00:04", text: "Let's kick off the quarterly review.", c: "#4C9BFF" },
@@ -60,6 +60,31 @@ export function FormatDropMini() {
         <p className="text-[12px] font-medium text-ink-invert">Drop a file to transcribe</p>
         <p className="text-[11px] text-muted-invert">Any format, up to 5GB</p>
       </div>
+    </div>
+  );
+}
+
+export function SpeedViz() {
+  const rows = [
+    { name: "interview.mp3", pct: 100, t: "8s" },
+    { name: "lecture.mp4", pct: 100, t: "11s" },
+    { name: "podcast.wav", pct: 62, t: "" },
+  ];
+  return (
+    <div className="mt-5 space-y-3">
+      {rows.map((r) => (
+        <div key={r.name} className="flex items-center gap-3">
+          <span className="w-24 shrink-0 truncate font-mono text-[11px] text-muted-invert">{r.name}</span>
+          <span className="relative h-1.5 flex-1 overflow-hidden rounded-full bg-white/10">
+            <span className="absolute inset-y-0 left-0 rounded-full bg-accent-glow" style={{ width: r.pct + "%" }} />
+          </span>
+          {r.pct === 100 ? (
+            <Check size={13} className="shrink-0 text-accent-glow" />
+          ) : (
+            <span className="shrink-0 font-mono text-[10px] text-accent-glow">transcribing</span>
+          )}
+        </div>
+      ))}
     </div>
   );
 }

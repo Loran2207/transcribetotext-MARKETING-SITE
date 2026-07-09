@@ -4,6 +4,7 @@ import { Button } from "../primitives/Button";
 import { Stars } from "../primitives/Stars";
 import { GlowBackground } from "../primitives/GlowBackground";
 import { DashboardHero } from "../mocks/DashboardHero";
+import { ScaledFrame } from "../primitives/ScaledFrame";
 import { hero } from "../../data/content";
 import { EASE_OUT, fadeUp, stagger } from "../../lib/motion";
 
@@ -50,10 +51,12 @@ export function Hero() {
           ))}
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, y: 48 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.9, ease: EASE_OUT }} className="relative mx-auto mt-14 w-full max-w-6xl px-6">
+        <motion.div initial={{ opacity: 0, y: 48 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.9, ease: EASE_OUT }} className="relative mx-auto mt-14 w-full max-w-[1280px] px-6">
           <GlowBackground className="inset-x-0 -top-10 bottom-24 opacity-90" intensity="lg" />
           <div style={{ WebkitMaskImage: FADE, maskImage: FADE }}>
-            <DashboardHero />
+            <ScaledFrame width={1360} maxHeight={620}>
+              <DashboardHero />
+            </ScaledFrame>
           </div>
         </motion.div>
       </div>

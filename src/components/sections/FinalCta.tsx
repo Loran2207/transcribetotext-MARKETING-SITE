@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Check, Infinity as InfinityIcon, Zap, ShieldCheck, Target } from "lucide-react";
 import { Container } from "../primitives/Container";
+import { SectionCutout } from "../primitives/SectionCutout";
 import { Waveform } from "../primitives/Waveform";
+import { StarField } from "../mocks/StarField";
 import { finalCta } from "../../data/content";
 import { fadeUp, stagger, viewportOnce, SPRING } from "../../lib/motion";
 
@@ -9,9 +11,9 @@ const ICONS = [InfinityIcon, Zap, ShieldCheck, Target];
 
 export function FinalCta() {
   return (
-    <section className="relative overflow-hidden rounded-t-[44px] bg-dark-atmosphere py-24 md:rounded-t-[60px] md:py-28">
-      <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-0 z-20 h-8 w-52 -translate-x-1/2 rounded-b-[24px] bg-canvas" />
-      <div aria-hidden="true" className="bg-dot-grid absolute inset-0 opacity-60" />
+    <section className="relative overflow-hidden bg-dark-atmosphere py-24 md:py-28">
+      <SectionCutout />
+      <StarField />
       <div aria-hidden="true" className="pointer-events-none absolute -top-20 left-1/2 h-72 w-[38rem] -translate-x-1/2 rounded-full bg-accent/25 blur-[130px]" />
       <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
       <Container className="relative">

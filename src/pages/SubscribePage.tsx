@@ -9,6 +9,7 @@ import { CheckoutModal } from "../components/subscribe/CheckoutModal";
 import { DarkFeedback } from "../components/subscribe/DarkFeedback";
 import { Guarantee, Benefits, SafeCheckout } from "../components/subscribe/SubscribeSections";
 import { Logo } from "../components/primitives/Logo";
+import { Waveform } from "../components/primitives/Waveform";
 import { subscribe } from "../data/subscribe";
 import { fadeUp, stagger } from "../lib/motion";
 
@@ -19,9 +20,15 @@ export function SubscribePage() {
   return (
     <div className="min-h-screen bg-canvas">
       <CountdownBar onGetPlan={() => setOpen(true)} />
-      <div className="bg-grid-lines-fine relative">
+      <div className="relative overflow-hidden bg-grid-lines-fine">
         <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-[540px] bg-hero-wash" />
-        <div className="relative mx-auto w-full max-w-[1100px] px-4 pt-10 sm:px-6">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 z-0 flex justify-center overflow-hidden opacity-[0.18]" style={{ WebkitMaskImage: "linear-gradient(to bottom, black, transparent)", maskImage: "linear-gradient(to bottom, black, transparent)" }}>
+          <div className="relative mt-4 w-full max-w-3xl px-6">
+            <Waveform bars={150} height={78} color="accent" />
+            {!reduce && <span className="pointer-events-none absolute inset-y-0 left-0 w-1/3" style={{ background: "linear-gradient(90deg, transparent, rgba(37,99,235,0.4), transparent)", animation: "shimmerX 3.6s linear infinite" }} />}
+          </div>
+        </div>
+        <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pt-10 sm:px-6">
           <div className="flex items-center justify-between">
             <Logo />
             <Link to="/" className="inline-flex items-center gap-1.5 text-sm font-medium text-ink-2 transition-colors hover:text-ink"><ArrowLeft size={15} /> Back to site</Link>
@@ -39,7 +46,7 @@ export function SubscribePage() {
       </div>
       <DarkFeedback />
       <div className="bg-canvas">
-        <div className="mx-auto w-full max-w-[1100px] px-4 pb-32 pt-10 sm:px-6">
+        <div className="mx-auto w-full max-w-5xl px-4 pb-32 pt-10 sm:px-6">
           <SafeCheckout />
         </div>
       </div>

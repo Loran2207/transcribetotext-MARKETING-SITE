@@ -14,6 +14,8 @@
   --color-accent-dark: #1D4ED8;
   --color-accent-soft: #EAF1FE;
   --color-gold: #F59E0B;
+  --color-deal: #F43F5E;
+  --color-deal-soft: #FFE4E6;
   --color-dark: #0A0F1E;
   --color-dark-2: #121A2E;
   --color-ink-invert: #EAF0FA;
@@ -101,3 +103,5 @@
 @keyframes heartShimmer { 0%, 100% { opacity: 0.32; } 50% { opacity: 0.92; } }
 
 @keyframes tabProgress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+@keyframes shimmerX { 0% { transform: translateX(-120%); } 100% { transform: translateX(220%); } }

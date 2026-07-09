@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Lock, Check, ArrowRight, CreditCard } from "lucide-react";
 import { subscribe } from "../../data/subscribe";
 import { EASE_OUT } from "../../lib/motion";
-import { GoogleG, PaymentRow, StripeBadge } from "./PaymentMarks";
+import { GoogleG, PaymentRow } from "./PaymentMarks";
 
 const field = "h-12 w-full rounded-input border border-border bg-white px-4 text-sm text-ink outline-none transition-all placeholder:text-muted focus:border-accent focus:ring-2 focus:ring-accent/15";
 
@@ -65,8 +65,7 @@ export function CheckoutModal({ open, onClose, planIndex }: { open: boolean; onC
                   </div>
                 </div>
                 <button onClick={() => setDone(true)} className="mt-5 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[linear-gradient(180deg,#3B82F6,#2563EB)] text-sm font-semibold text-white shadow-blue ring-1 ring-inset ring-white/20 transition-[filter] hover:brightness-[1.05]">{c.continue} <ArrowRight size={16} /></button>
-                <div className="mt-4 flex items-center justify-center gap-2 text-[11px] text-muted"><span className="inline-flex items-center gap-1"><Lock size={12} /> {subscribe.safeCheckout}</span><StripeBadge /></div>
-                <div className="mt-3"><PaymentRow /></div>
+                <div className="mt-5 flex flex-col items-center gap-3"><span className="inline-flex items-center gap-1.5 text-[11px] text-muted"><Lock size={12} /> {subscribe.safeCheckout}</span><PaymentRow /></div>
                 <p className="mt-4 text-center text-[11px] leading-relaxed text-muted">{c.terms}</p>
               </>
             )}

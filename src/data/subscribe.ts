@@ -33,9 +33,9 @@ export const subscribe = {
   feedbacksTitle: "Our users' feedback",
   feedbacksSub: "These users have long-term plans to use the service and shared their feedback to help us improve the experience.",
   feedbacks: [
-    { name: "Mike", quote: "Really impressed with this online transcription tool. It handles multiple speakers and background noise like a pro. Affordable pricing and great customer support. Saved me hours of work!" },
-    { name: "Kate", quote: "This transcription service is a game-changer! Super fast turnaround and the accuracy is spot-on, even with tricky audio. The interface is clean and easy to use. Definitely recommend it for anyone needing quick, reliable transcripts." },
-    { name: "Peter", quote: "Solid service! The transcripts are accurate, and delivery is always on time. I love how user-friendly the platform is, uploading files is a breeze. Perfect for professionals or students needing quality transcription." },
+    { name: "Mike", avatar: 0, quote: "Really impressed with this online transcription tool. It handles multiple speakers and background noise like a pro. Affordable pricing and great customer support. Saved me hours of work!" },
+    { name: "Kate", avatar: 3, quote: "This transcription service is a game-changer! Super fast turnaround and the accuracy is spot-on, even with tricky audio. The interface is clean and easy to use. Definitely recommend it for anyone needing quick, reliable transcripts." },
+    { name: "Peter", avatar: 1, quote: "Solid service! The transcripts are accurate, and delivery is always on time. I love how user-friendly the platform is, uploading files is a breeze. Perfect for professionals or students needing quality transcription." },
   ],
   safeCheckout: "Guaranteed safe and secure checkout",
   payments: ["Visa", "Mastercard", "Amex", "Google Pay", "Apple Pay", "PayPal"],

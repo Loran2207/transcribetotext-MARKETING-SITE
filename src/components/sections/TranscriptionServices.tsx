@@ -39,7 +39,7 @@ export function TranscriptionServices() {
       <Container className="relative">
         <SectionHeading eyebrow={S.eyebrow} title={S.title} tone="dark" />
 
-        <motion.div variants={{ hidden: {}, show: { transition: { staggerChildren: 0.06 } } }} initial="hidden" whileInView="show" viewport={viewportOnce} className="mx-auto mt-10 grid max-w-5xl grid-cols-2 gap-2.5 sm:grid-cols-4">
+        <motion.div variants={{ hidden: {}, show: { transition: { staggerChildren: 0.06 } } }} initial="hidden" whileInView="show" viewport={viewportOnce} className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
           {S.tabs.map((tab, i) => {
             const Icon = ICONS[i];
             const on = i === active;
@@ -67,7 +67,7 @@ export function TranscriptionServices() {
           })}
         </motion.div>
 
-        <div className="mt-12 grid items-center gap-10 md:grid-cols-2">
+        <div className="mt-12 grid min-h-[460px] items-center gap-10 md:grid-cols-2">
           <div className="relative">
             <AnimatePresence mode="wait">
               <motion.div key={t.key} initial={{ opacity: 0, x: -22, filter: "blur(8px)" }} animate={{ opacity: 1, x: 0, filter: "blur(0px)" }} exit={{ opacity: 0, x: 22, filter: "blur(8px)" }} transition={{ duration: 0.45, ease: EASE_OUT }}>

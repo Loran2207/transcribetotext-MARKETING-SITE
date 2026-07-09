@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
-import { Container } from "../primitives/Container";
 import { SectionCutout } from "../primitives/SectionCutout";
 import { StarField } from "../mocks/StarField";
 import { HeartGlow } from "../mocks/HeartGlow";
@@ -15,16 +14,16 @@ export function DarkFeedback() {
       <SectionCutout fill="#FFFFFF" />
       <StarField />
       <HeartGlow className="left-1/2 top-[-30px] -translate-x-1/2" />
-      <Container className="relative">
+      <div className="relative mx-auto w-full max-w-5xl px-4 sm:px-6">
         <motion.div variants={stagger(0.08)} initial="hidden" whileInView="show" viewport={viewportOnce} className="flex flex-col items-center gap-3 text-center">
           <motion.h2 variants={fadeUp} className="text-balance font-display text-3xl font-semibold tracking-tight text-ink-invert sm:text-4xl">{subscribe.feedbacksTitle}</motion.h2>
           <motion.p variants={fadeUp} className="max-w-xl text-pretty text-sm leading-relaxed text-muted-invert">{subscribe.feedbacksSub}</motion.p>
         </motion.div>
-        <motion.div variants={stagger(0.08)} initial="hidden" whileInView="show" viewport={viewportOnce} className="mx-auto mt-10 grid max-w-4xl items-start gap-5 sm:grid-cols-3">
-          {subscribe.feedbacks.map((f, i) => (
+        <motion.div variants={stagger(0.08)} initial="hidden" whileInView="show" viewport={viewportOnce} className="mt-10 grid items-start gap-5 sm:grid-cols-3">
+          {subscribe.feedbacks.map((f) => (
             <motion.figure key={f.name} variants={scaleIn} whileHover={{ y: -4 }} className="rounded-tile border border-white/10 surface-dark p-6 transition-colors hover:border-white/20">
               <div className="flex items-center gap-3">
-                <img src={brand.avatars[i % brand.avatars.length]} alt="" className="h-10 w-10 rounded-full object-cover ring-1 ring-white/15" />
+                <img src={brand.avatars[f.avatar]} alt="" className="h-10 w-10 rounded-full object-cover ring-1 ring-white/15" />
                 <div className="leading-tight">
                   <p className="text-sm font-semibold text-ink-invert">{f.name}</p>
                   <div className="mt-0.5 flex gap-0.5 text-gold">{Array.from({ length: 5 }).map((_, s) => <Star key={s} size={11} fill="currentColor" />)}</div>
@@ -34,7 +33,7 @@ export function DarkFeedback() {
             </motion.figure>
           ))}
         </motion.div>
-      </Container>
+      </div>
     </section>
   );
 }

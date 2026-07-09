@@ -35,7 +35,7 @@ export function Testimonials() {
                 className="group break-inside-avoid rounded-tile border border-white/10 surface-dark p-6 transition-colors hover:border-white/20"
               >
                 <div className="flex items-center gap-3">
-                  <img src={brand.avatars[i % brand.avatars.length]} alt="" className="h-10 w-10 rounded-full object-cover ring-1 ring-white/15" />
+                  <img src={brand.avatars[t.avatar]} alt="" className="h-10 w-10 rounded-full object-cover ring-1 ring-white/15" />
                   <div className="leading-tight">
                     <span className="flex items-center gap-1 text-sm font-semibold text-ink-invert">{t.user}<BadgeCheck size={14} className="text-accent-glow" /></span>
                     <span className="text-[12px] text-muted-invert">{handle(t.user)}</span>

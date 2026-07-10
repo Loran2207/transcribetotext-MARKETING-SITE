@@ -38,9 +38,8 @@ export function CheckoutModal({ open, onClose, planIndex }: { open: boolean; onC
                 <h3 className="pr-8 font-display text-2xl font-semibold text-ink">{c.title}</h3>
                 <p className="mt-5 text-xs font-medium text-muted">{c.summaryLabel}</p>
                 <div className="mt-2 space-y-1.5 text-sm">
-                  <Row label="Premium membership" value={plan.now} />
-                  <Row label="Business package" value="Free" />
-                  <Row label="Priority processing" value="Free" />
+                  <Row label={c.regularLabel} value={plan.now} />
+                  <Row label={c.bonusLabel} value={c.bonusValue} />
                   <div className="mt-2 flex justify-between border-t border-border pt-2 text-base font-semibold text-ink"><span>{c.totalLabel}</span><span>{plan.now}</span></div>
                 </div>
                 <button onClick={() => setDone(true)} className="mt-5 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-ink text-sm font-semibold text-white transition-[filter] hover:brightness-150"><GoogleG size={18} /> Pay</button>

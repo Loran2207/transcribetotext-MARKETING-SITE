@@ -18,12 +18,16 @@ export function SubscribePage() {
   const [open, setOpen] = useState(false);
   const reduce = useReducedMotion();
   return (
-    <div className="min-h-screen bg-canvas">
+    <div className="relative min-h-screen bg-canvas">
+      {/* Top wash + waveform are pinned to the very top of the page, exactly like the
+          landing hero, so the wave sits in the same place when you navigate between
+          the two pages. The countdown bar floats over it the way the nav does on the
+          landing page. */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[540px] bg-hero-wash" />
+      <TopWave />
       <CountdownBar onGetPlan={() => setOpen(true)} />
-      <div className="relative overflow-hidden bg-grid-lines-fine">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-[540px] bg-hero-wash" />
-        <TopWave />
-        <div className="relative z-10 mx-auto w-full max-w-5xl px-4 pt-10 sm:px-6">
+      <div className="relative z-10 overflow-hidden bg-grid-lines-fine">
+        <div className="mx-auto w-full max-w-5xl px-4 pt-10 sm:px-6">
           <div className="flex items-center justify-between">
             <Logo />
             <Link to="/" className="inline-flex items-center gap-1.5 text-sm font-medium text-ink-2 transition-colors hover:text-ink"><ArrowLeft size={15} /> Back to site</Link>

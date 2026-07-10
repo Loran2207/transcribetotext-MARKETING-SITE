@@ -42,13 +42,12 @@ export const subscribe = {
   checkout: {
     title: "Complete checkout",
     summaryLabel: "Order summary",
-    lines: [
-      { label: "Premium membership", price: null }, // price filled from selected plan
-      { label: "Business package", price: "Free" },
-      { label: "Priority processing", price: "Free" },
-    ],
-    totalLabel: "Total today",
-    googlePay: "Pay with Google Pay",
+    // Order summary composition mirrors the source funnel (Figma 8079-4):
+    // one priced line + one free bonuses line, and the total equals the priced line.
+    regularLabel: "Regular 4-week price",
+    bonusLabel: "30+ Exclusive bonuses",
+    bonusValue: "Free",
+    totalLabel: "Total today:",
     cardLabel: "Card number",
     expiryLabel: "Expiry date MM / YY",
     cvcLabel: "CVC",

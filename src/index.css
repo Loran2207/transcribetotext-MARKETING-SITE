@@ -106,4 +106,3 @@
 
 @keyframes tabProgress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 
-@keyframes shimmerX { 0% { transform: translateX(-120%); } 100% { transform: translateX(220%); } }

@@ -1,11 +1,7 @@
 import { motion } from "framer-motion";
 import { CloudUpload, FileVideo, Link2 } from "lucide-react";
 
-const PROVIDERS = [
-  { letter: "D", label: "Dropbox", cls: "bg-accent/20 text-accent-glow" },
-  { letter: "G", label: "Drive", cls: "bg-emerald-400/15 text-emerald-300/80" },
-  { letter: "O", label: "OneDrive", cls: "bg-sky-400/15 text-sky-300/80" },
-];
+const PROVIDERS = ["Dropbox", "Drive", "OneDrive"];
 
 export function CloudFileViz() {
   return (
@@ -34,10 +30,9 @@ export function CloudFileViz() {
       </div>
 
       <div className="mt-4 flex items-center gap-2.5">
-        {PROVIDERS.map((p) => (
-          <div key={p.letter} className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.02] px-2.5 py-1.5">
-            <span className={`grid h-6 w-6 place-items-center rounded-md font-mono text-[12px] font-semibold ${p.cls}`}>{p.letter}</span>
-            <span className="text-[12px] text-muted-invert">{p.label}</span>
+        {PROVIDERS.map((label) => (
+          <div key={label} className="rounded-lg border border-white/10 bg-white/[0.02] px-3 py-1.5">
+            <span className="text-[12px] text-muted-invert">{label}</span>
           </div>
         ))}
       </div>
